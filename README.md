@@ -1,4 +1,4 @@
-#Razvoj softverskog sistema za auto školu
+# Razvoj softverskog sistema za auto školu
 
 Potrebno je napraviti aplikaciju za auto školu koja će voditi evidenciju o polaznicima i 
 instruktorima auto škole. Takođe, potrebno je voditi evidenciju i o zakazanim vožnjama.
