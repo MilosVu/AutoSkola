@@ -10,14 +10,16 @@ namespace Storage
     public interface IRepositoryPolaznik
     {
 
-        List<Polaznik> vratiPolaznike(List<Polaznik> polaznici);
+        List<Polaznik> VratiPolaznike();
 
-        Polaznik vratiPolaznika(Polaznik polaznik);
+        Polaznik VratiPolaznika(Polaznik polaznik);
 
-        bool kreirajPolaznika(Polaznik polaznik);
+        bool KreirajPolaznika(Polaznik polaznik);
 
-        bool izmeniPolaznika(Polaznik polaznik);
+        bool IzmeniPolaznika(Polaznik polaznik);
 
-        void obrisiPolaznika(Polaznik polaznik);
+        bool ObrisiPolaznika(Polaznik polaznik);
+
+        bool Update(Polaznik polaznik);
     }
 }

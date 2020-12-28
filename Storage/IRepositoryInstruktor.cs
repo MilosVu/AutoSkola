@@ -10,13 +10,13 @@ namespace Storage
     public interface IRepositoryInstruktor
     {
 
-        List<Instruktor> vratiInstruktore();
+        List<Instruktor> VratiInstruktore();
 
-        Instruktor vratiInstruktora(Instruktor instruktor);
+        Instruktor VratiInstruktora(Instruktor instruktor);
 
-        bool izmeniInstruktora(Instruktor instruktor);
+        bool IzmeniInstruktora(Instruktor instruktor);
 
-        void brisiInstruktora(Instruktor instruktor);
+        void BrisiInstruktora(Instruktor instruktor);
 
     }
 }

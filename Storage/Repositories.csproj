@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\RepositoryPolaznik.cs" />
     <Compile Include="Implementations\RepositorySluzbenikAutoSkole.cs" />
     <Compile Include="IRepositoryInstruktor.cs" />
     <Compile Include="IRepositoryPolaznik.cs" />
@@ -48,6 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BrokerClass\BrokerClass.csproj">
+      <Project>{a8cf33fb-a86c-4b93-aef0-8644ddbd8dd0}</Project>
+      <Name>BrokerClass</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{3ac774ac-d564-47b4-a704-078a188cda70}</Project>
       <Name>Domain</Name>

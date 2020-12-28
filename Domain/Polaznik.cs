@@ -18,5 +18,10 @@ namespace Domain
         public DateTime DatumRodjenja { get; set; }
 
         public Kategorija Kategorija { get; set; }
+
+        public override string ToString()
+        {
+            return $"{IdPolaznika} {Ime} {Prezime}";
+        }
     }
 }

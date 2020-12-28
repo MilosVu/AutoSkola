@@ -21,9 +21,11 @@ namespace Forme
         public FormaPrijavljivanje()
         {
             InitializeComponent();
-            lblFormaZaPrijavljivanje.BackColor = System.Drawing.Color.Transparent;
-            lblKorisnickoIme.BackColor = System.Drawing.Color.Transparent;
-            lblLozinka.BackColor = System.Drawing.Color.Transparent;
+            FormeHelper.PostaviPozadinuTransparentnu(new Label[]{
+                lblFormaZaPrijavljivanje,lblKorisnickoIme,lblLozinka
+            });
+            txtKorisnickoIme.Text = "admin";
+            txtLozinka.Text = "admin";
             controller = Controller.Instance;
         }
 

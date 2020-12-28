@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Storage.Implementations;
+using System.ComponentModel;
 
 namespace ControllerClass
 {
@@ -30,16 +31,46 @@ namespace ControllerClass
         }
 
         private IRepositorySluzbenikAutoSkole repositorySluzbenikAutoSkole;
-        private IRepositoryPolaznik repositoryPolaznik;
+        private IRepositoryPolaznik repositoryPolaznik = new RepositoryPolaznik();
         private IRepositoryInstruktor repositoryInstruktor;
         
         public SluzbenikAutoSkole SluzbenikAutoSkole { get; set; }
-
 
         public bool Prijavljivanje(SluzbenikAutoSkole sluzbenik)
         {
             return repositorySluzbenikAutoSkole.Prijavljivanje(sluzbenik);
         }
+
+        #region Polaznik
+        public BindingList<Polaznik> VratiPolaznike()
+        {
+            return new BindingList<Polaznik>(repositoryPolaznik.VratiPolaznike());
+        }
+
+        public bool KreirajPolaznika(Polaznik polaznik)
+        {
+            return repositoryPolaznik.KreirajPolaznika(polaznik);
+        }
+
+        public Polaznik VratiPolaznika(Polaznik polaznik)
+        {
+            return repositoryPolaznik.VratiPolaznika(polaznik);
+        }
+
+        public bool ObrisiPolaznika(Polaznik polaznik)
+        {
+            return repositoryPolaznik.ObrisiPolaznika(polaznik);
+        }
+
+        public bool Update(Polaznik polaznik)
+        {
+            return repositoryPolaznik.Update(polaznik);
+        }
+        #endregion
+
+        #region Instruktor
+
+        #endregion
 
     }
 }
