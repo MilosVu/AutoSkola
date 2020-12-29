@@ -62,9 +62,9 @@ namespace ControllerClass
             return repositoryPolaznik.ObrisiPolaznika(polaznik);
         }
 
-        public bool Update(Polaznik polaznik)
+        public bool UpdatePolaznika(Polaznik polaznik)
         {
-            return repositoryPolaznik.Update(polaznik);
+            return repositoryPolaznik.UpdatePolaznika(polaznik);
         }
         #endregion
 

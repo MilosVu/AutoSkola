@@ -32,14 +32,14 @@ namespace Forme
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPolaznici));
             this.lblPolaznici = new System.Windows.Forms.Label();
             this.dataGridPolaznici = new System.Windows.Forms.DataGridView();
-            this.btnKreirajPolaznika = new System.Windows.Forms.Button();
-            this.btnIzbrisiPolaznika = new System.Windows.Forms.Button();
-            this.btnPretraziPolaznika = new System.Windows.Forms.Button();
             this.txtIdPolaznik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDatumRodjenja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbKategorija = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btnKreirajPolaznika = new System.Windows.Forms.Button();
+            this.btnIzbrisiPolaznika = new System.Windows.Forms.Button();
+            this.btnPretraziPolaznika = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPolaznici)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,38 +81,7 @@ namespace Forme
             this.dataGridPolaznici.TabIndex = 1;
             this.dataGridPolaznici.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPolaznici_CellValueChanged);
             this.dataGridPolaznici.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridPolaznici_DataError);
-            // 
-            // btnKreirajPolaznika
-            // 
-            this.btnKreirajPolaznika.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnKreirajPolaznika.Location = new System.Drawing.Point(113, 551);
-            this.btnKreirajPolaznika.Name = "btnKreirajPolaznika";
-            this.btnKreirajPolaznika.Size = new System.Drawing.Size(149, 39);
-            this.btnKreirajPolaznika.TabIndex = 2;
-            this.btnKreirajPolaznika.Text = "Kreiraj Polaznika";
-            this.btnKreirajPolaznika.UseVisualStyleBackColor = true;
-            this.btnKreirajPolaznika.Click += new System.EventHandler(this.btnKreirajPolaznika_Click);
-            // 
-            // btnIzbrisiPolaznika
-            // 
-            this.btnIzbrisiPolaznika.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnIzbrisiPolaznika.Location = new System.Drawing.Point(402, 551);
-            this.btnIzbrisiPolaznika.Name = "btnIzbrisiPolaznika";
-            this.btnIzbrisiPolaznika.Size = new System.Drawing.Size(149, 39);
-            this.btnIzbrisiPolaznika.TabIndex = 3;
-            this.btnIzbrisiPolaznika.Text = "Izbrisi Polaznika";
-            this.btnIzbrisiPolaznika.UseVisualStyleBackColor = true;
-            this.btnIzbrisiPolaznika.Click += new System.EventHandler(this.btnIzbrisiPolaznika_Click);
-            // 
-            // btnPretraziPolaznika
-            // 
-            this.btnPretraziPolaznika.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPretraziPolaznika.Location = new System.Drawing.Point(692, 551);
-            this.btnPretraziPolaznika.Name = "btnPretraziPolaznika";
-            this.btnPretraziPolaznika.Size = new System.Drawing.Size(149, 39);
-            this.btnPretraziPolaznika.TabIndex = 4;
-            this.btnPretraziPolaznika.Text = "Pretrazi Polaznika";
-            this.btnPretraziPolaznika.UseVisualStyleBackColor = true;
+            this.dataGridPolaznici.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridPolaznici_MouseDoubleClick);
             // 
             // txtIdPolaznik
             // 
@@ -151,6 +120,38 @@ namespace Forme
             this.cbKategorija.Name = "cbKategorija";
             this.cbKategorija.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cbKategorija.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // btnKreirajPolaznika
+            // 
+            this.btnKreirajPolaznika.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnKreirajPolaznika.Location = new System.Drawing.Point(113, 551);
+            this.btnKreirajPolaznika.Name = "btnKreirajPolaznika";
+            this.btnKreirajPolaznika.Size = new System.Drawing.Size(149, 39);
+            this.btnKreirajPolaznika.TabIndex = 2;
+            this.btnKreirajPolaznika.Text = "Kreiraj Polaznika";
+            this.btnKreirajPolaznika.UseVisualStyleBackColor = true;
+            this.btnKreirajPolaznika.Click += new System.EventHandler(this.btnKreirajPolaznika_Click);
+            // 
+            // btnIzbrisiPolaznika
+            // 
+            this.btnIzbrisiPolaznika.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnIzbrisiPolaznika.Location = new System.Drawing.Point(402, 551);
+            this.btnIzbrisiPolaznika.Name = "btnIzbrisiPolaznika";
+            this.btnIzbrisiPolaznika.Size = new System.Drawing.Size(149, 39);
+            this.btnIzbrisiPolaznika.TabIndex = 3;
+            this.btnIzbrisiPolaznika.Text = "Izbrisi Polaznika";
+            this.btnIzbrisiPolaznika.UseVisualStyleBackColor = true;
+            this.btnIzbrisiPolaznika.Click += new System.EventHandler(this.btnIzbrisiPolaznika_Click);
+            // 
+            // btnPretraziPolaznika
+            // 
+            this.btnPretraziPolaznika.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPretraziPolaznika.Location = new System.Drawing.Point(692, 551);
+            this.btnPretraziPolaznika.Name = "btnPretraziPolaznika";
+            this.btnPretraziPolaznika.Size = new System.Drawing.Size(149, 39);
+            this.btnPretraziPolaznika.TabIndex = 4;
+            this.btnPretraziPolaznika.Text = "Pretrazi Polaznika";
+            this.btnPretraziPolaznika.UseVisualStyleBackColor = true;
             // 
             // UCPolaznici
             // 

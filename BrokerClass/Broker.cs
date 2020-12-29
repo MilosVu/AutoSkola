@@ -18,6 +18,7 @@ namespace BrokerClass
             this.connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoSkola;Integrated Security=True;Connect Timeout=30;");
         }
 
+        #region Konekcija
         public void OtvoriKonekciju()
         {
             connection.Open();
@@ -27,6 +28,7 @@ namespace BrokerClass
         {
             connection.Close();
         }
+        #endregion
 
         #region Polaznik
         public bool KreirajPolaznika(Polaznik polaznik)
@@ -47,7 +49,7 @@ namespace BrokerClass
             return true;
         }
 
-        public bool Update(Polaznik polaznik)
+        public bool UpdatePolaznika(Polaznik polaznik)
         {
             SqlCommand command = connection.CreateCommand();
             command.CommandText = "UPDATE Polaznik SET Ime = @ime, Prezime = @prezime, " +

@@ -45,11 +45,12 @@ namespace Forme
             // 
             // lblPolaznik
             // 
+            this.lblPolaznik.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPolaznik.AutoSize = true;
             this.lblPolaznik.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblPolaznik.Font = new System.Drawing.Font("Arial Narrow", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPolaznik.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPolaznik.Location = new System.Drawing.Point(246, 64);
+            this.lblPolaznik.Location = new System.Drawing.Point(235, 34);
             this.lblPolaznik.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPolaznik.Name = "lblPolaznik";
             this.lblPolaznik.Size = new System.Drawing.Size(147, 44);
@@ -60,7 +61,7 @@ namespace Forme
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateTimePicker.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker.Location = new System.Drawing.Point(209, 279);
+            this.dateTimePicker.Location = new System.Drawing.Point(224, 249);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(307, 33);
             this.dateTimePicker.TabIndex = 17;
@@ -70,7 +71,7 @@ namespace Forme
             this.cbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbKategorija.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbKategorija.FormattingEnabled = true;
-            this.cbKategorija.Location = new System.Drawing.Point(209, 347);
+            this.cbKategorija.Location = new System.Drawing.Point(224, 317);
             this.cbKategorija.Name = "cbKategorija";
             this.cbKategorija.Size = new System.Drawing.Size(307, 34);
             this.cbKategorija.TabIndex = 16;
@@ -79,7 +80,7 @@ namespace Forme
             // 
             this.txtPrezime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPrezime.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrezime.Location = new System.Drawing.Point(209, 206);
+            this.txtPrezime.Location = new System.Drawing.Point(224, 176);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(307, 33);
             this.txtPrezime.TabIndex = 15;
@@ -88,7 +89,7 @@ namespace Forme
             // 
             this.txtIme.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIme.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIme.Location = new System.Drawing.Point(209, 138);
+            this.txtIme.Location = new System.Drawing.Point(224, 108);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(307, 33);
             this.txtIme.TabIndex = 14;
@@ -97,12 +98,13 @@ namespace Forme
             // 
             this.btnZatvori.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnZatvori.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZatvori.Location = new System.Drawing.Point(406, 461);
+            this.btnZatvori.Location = new System.Drawing.Point(398, 408);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(133, 42);
             this.btnZatvori.TabIndex = 13;
             this.btnZatvori.Text = "Zatvori";
             this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
             // 
             // lblKategorija
             // 
@@ -111,9 +113,9 @@ namespace Forme
             this.lblKategorija.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblKategorija.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKategorija.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblKategorija.Location = new System.Drawing.Point(34, 353);
+            this.lblKategorija.Location = new System.Drawing.Point(49, 323);
             this.lblKategorija.Name = "lblKategorija";
-            this.lblKategorija.Size = new System.Drawing.Size(93, 27);
+            this.lblKategorija.Size = new System.Drawing.Size(93, 26);
             this.lblKategorija.TabIndex = 12;
             this.lblKategorija.Text = "Kategorija";
             // 
@@ -124,9 +126,9 @@ namespace Forme
             this.lblDatumRodjenja.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblDatumRodjenja.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatumRodjenja.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDatumRodjenja.Location = new System.Drawing.Point(34, 285);
+            this.lblDatumRodjenja.Location = new System.Drawing.Point(49, 255);
             this.lblDatumRodjenja.Name = "lblDatumRodjenja";
-            this.lblDatumRodjenja.Size = new System.Drawing.Size(144, 27);
+            this.lblDatumRodjenja.Size = new System.Drawing.Size(141, 26);
             this.lblDatumRodjenja.TabIndex = 11;
             this.lblDatumRodjenja.Text = "Datum Rodjenja";
             // 
@@ -137,9 +139,9 @@ namespace Forme
             this.lblPrezime.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblPrezime.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrezime.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblPrezime.Location = new System.Drawing.Point(34, 211);
+            this.lblPrezime.Location = new System.Drawing.Point(49, 181);
             this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(80, 27);
+            this.lblPrezime.Size = new System.Drawing.Size(78, 26);
             this.lblPrezime.TabIndex = 10;
             this.lblPrezime.Text = "Prezime";
             // 
@@ -150,9 +152,9 @@ namespace Forme
             this.lblIme.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblIme.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIme.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblIme.Location = new System.Drawing.Point(34, 143);
+            this.lblIme.Location = new System.Drawing.Point(49, 113);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(42, 27);
+            this.lblIme.Size = new System.Drawing.Size(41, 26);
             this.lblIme.TabIndex = 9;
             this.lblIme.Text = "Ime";
             // 
@@ -160,12 +162,13 @@ namespace Forme
             // 
             this.btnSacuvajIzmene.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSacuvajIzmene.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSacuvajIzmene.Location = new System.Drawing.Point(117, 461);
+            this.btnSacuvajIzmene.Location = new System.Drawing.Point(79, 408);
             this.btnSacuvajIzmene.Name = "btnSacuvajIzmene";
             this.btnSacuvajIzmene.Size = new System.Drawing.Size(186, 42);
             this.btnSacuvajIzmene.TabIndex = 18;
             this.btnSacuvajIzmene.Text = "Sacuvaj izmene";
             this.btnSacuvajIzmene.UseVisualStyleBackColor = true;
+            this.btnSacuvajIzmene.Click += new System.EventHandler(this.btnSacuvajIzmene_Click);
             // 
             // DialogPrikazPolaznika
             // 
@@ -173,7 +176,7 @@ namespace Forme
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(650, 573);
+            this.ClientSize = new System.Drawing.Size(622, 501);
             this.Controls.Add(this.btnSacuvajIzmene);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.cbKategorija);
@@ -186,9 +189,11 @@ namespace Forme
             this.Controls.Add(this.lblIme);
             this.Controls.Add(this.lblPolaznik);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DialogPrikazPolaznika";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DialogPrikazPolaznika";
+            this.Load += new System.EventHandler(this.DialogPrikazPolaznika_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

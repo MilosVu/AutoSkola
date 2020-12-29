@@ -66,12 +66,24 @@ namespace Forme
             if (dataGridPolaznici.CurrentRow == null)
                 return;
             Polaznik polaznik = dataGridPolaznici.CurrentRow.DataBoundItem as Polaznik;
-            controller.Update(polaznik);
+            controller.UpdatePolaznika(polaznik);
         }
 
         private void dataGridPolaznici_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private void dataGridPolaznici_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MessageBox.Show("Test");
+        }
+
+        private void dataGridPolaznici_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            DialogPrikazPolaznika dialogPrikazPolaznika = 
+                new DialogPrikazPolaznika(dataGridPolaznici.CurrentRow.DataBoundItem as Polaznik);
+            dialogPrikazPolaznika.ShowDialog();
         }
     }
 }

@@ -20,6 +20,6 @@ namespace Storage
 
         bool ObrisiPolaznika(Polaznik polaznik);
 
-        bool Update(Polaznik polaznik);
+        bool UpdatePolaznika(Polaznik polaznik);
     }
 }

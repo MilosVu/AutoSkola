@@ -33,10 +33,10 @@ namespace Storage.Implementations
             return uspelo;
         }
 
-        public bool Update(Polaznik polaznik)
+        public bool UpdatePolaznika(Polaznik polaznik)
         {
             broker.OtvoriKonekciju();
-            bool uspelo = broker.Update(polaznik);
+            bool uspelo = broker.UpdatePolaznika(polaznik);
             broker.ZatvoriKonekciju();
             return uspelo;
         }
