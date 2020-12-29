@@ -112,8 +112,9 @@ namespace Forme
             // prikazInstruktoraToolStripMenuItem
             // 
             this.prikazInstruktoraToolStripMenuItem.Name = "prikazInstruktoraToolStripMenuItem";
-            this.prikazInstruktoraToolStripMenuItem.Size = new System.Drawing.Size(218, 28);
+            this.prikazInstruktoraToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.prikazInstruktoraToolStripMenuItem.Text = "Prikaz instruktora";
+            this.prikazInstruktoraToolStripMenuItem.Click += new System.EventHandler(this.prikazInstruktoraToolStripMenuItem_Click);
             // 
             // voznjeToolStripMenuItem
             // 

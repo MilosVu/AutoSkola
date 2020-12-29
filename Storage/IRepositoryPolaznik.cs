@@ -16,8 +16,6 @@ namespace Storage
 
         bool KreirajPolaznika(Polaznik polaznik);
 
-        bool IzmeniPolaznika(Polaznik polaznik);
-
         bool ObrisiPolaznika(Polaznik polaznik);
 
         bool UpdatePolaznika(Polaznik polaznik);

@@ -14,9 +14,8 @@ namespace Storage
 
         Instruktor VratiInstruktora(Instruktor instruktor);
 
-        bool IzmeniInstruktora(Instruktor instruktor);
+        bool ObrisiInstruktora(Instruktor instruktor);
 
-        void BrisiInstruktora(Instruktor instruktor);
-
+        bool UpdateInstruktora(Instruktor instruktor);
     }
 }

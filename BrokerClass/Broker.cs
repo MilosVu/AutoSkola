@@ -18,17 +18,21 @@ namespace BrokerClass
             this.connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoSkola;Integrated Security=True;Connect Timeout=30;");
         }
 
+
         #region Konekcija
         public void OtvoriKonekciju()
         {
             connection.Open();
         }
 
+
         public void ZatvoriKonekciju()
         {
             connection.Close();
         }
+
         #endregion
+
 
         #region Polaznik
         public bool KreirajPolaznika(Polaznik polaznik)
@@ -40,7 +44,7 @@ namespace BrokerClass
             command.Parameters.AddWithValue("@ime", polaznik.Ime);
             command.Parameters.AddWithValue("@prezime", polaznik.Prezime);
             command.Parameters.AddWithValue("@datumRodjenja", polaznik.DatumRodjenja);
-            command.Parameters.AddWithValue("@kategorija", VratiKategoriju(polaznik.Kategorija));
+            command.Parameters.AddWithValue("@kategorija", polaznik.Kategorija.ToString());
 
             if (command.ExecuteNonQuery() != 1)
             {
@@ -59,7 +63,7 @@ namespace BrokerClass
             command.Parameters.AddWithValue("@ime", polaznik.Ime);
             command.Parameters.AddWithValue("@prezime", polaznik.Prezime);
             command.Parameters.AddWithValue("@datumRodjenja", polaznik.DatumRodjenja);
-            command.Parameters.AddWithValue("@kategorija", VratiKategoriju(polaznik.Kategorija));
+            command.Parameters.AddWithValue("@kategorija", polaznik.Kategorija.ToString());
             command.Parameters.AddWithValue("@idPolaznika", polaznik.IdPolaznika);
 
             if (command.ExecuteNonQuery() != 1)
@@ -67,11 +71,6 @@ namespace BrokerClass
                 return false;
             }
             return true;
-        }
-
-        private string VratiKategoriju(Kategorija kategorija)
-        {
-            return kategorija.ToString();
         }
 
         public List<Polaznik> VratiPolaznike()
@@ -141,8 +140,70 @@ namespace BrokerClass
         }
         #endregion
 
-        #region Instruktor
 
+        #region Instruktor
+        public bool UpdateInstruktora(Instruktor instruktor)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "UPDATE Instruktor SET Ime = @ime, Prezime = @prezime, " +
+                "Kategorija = @kategorija " +
+                "WHERE IdInstruktora = @idInstruktora";
+
+            command.Parameters.AddWithValue("@ime", instruktor.Ime);
+            command.Parameters.AddWithValue("@prezime", instruktor.Prezime);
+            command.Parameters.AddWithValue("@kategorija", instruktor.Kategorija.ToString());
+            command.Parameters.AddWithValue("@idInstruktora", instruktor.IdInstruktora);
+
+            if (command.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+            return true;
+        }
+        
+        public Instruktor VratiInstruktora(Instruktor instruktor)
+        {
+            throw new NotImplementedException();
+        }
+        
+        public bool ObrisiInstruktora(Instruktor instruktor)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "DELETE from Instruktor Where IdInstruktora = @idInstruktora";
+            command.Parameters.AddWithValue("@idInstruktora", instruktor.IdInstruktora);
+
+            if (command.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public List<Instruktor> VratiInstruktore()
+        {
+            List<Instruktor> instruktori = new List<Instruktor>();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * from Instruktor";
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    instruktori.Add(new Instruktor()
+                    {
+                        IdInstruktora = (int)reader["IdInstruktora"],
+                        Ime = (string)reader["Ime"],
+                        Prezime = (string)reader["Prezime"],
+                        Kategorija = (Kategorija)Enum.Parse(typeof(Kategorija), (string)reader["Kategorija"]),
+                    });
+                }
+            }
+
+            return instruktori;
+        }
         #endregion
 
     }

@@ -41,5 +41,10 @@ namespace Forme
             userControl.Dock = DockStyle.Fill;
         }
 
+        private void prikazInstruktoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetPanel(new UCInstruktor());
+        }
+    
     }
 }

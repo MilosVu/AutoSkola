@@ -12,11 +12,6 @@ namespace Storage.Implementations
     {
         private Broker broker = new Broker();
 
-        public bool IzmeniPolaznika(Polaznik polaznik)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool KreirajPolaznika(Polaznik polaznik)
         {
             broker.OtvoriKonekciju();

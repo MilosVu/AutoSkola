@@ -28,11 +28,8 @@ namespace Forme
 
         private void UCPolaznici_Load(object sender, EventArgs e)
         {
-            //cbKategorija.ValueMember = "Kategorija";
-            //cbKategorija.DisplayMember = "A";
             FormeHelper.PopuniComboBoxKategorijeDataGrid(cbKategorija);
             dataGridPolaznici.DataSource = polaznici;
-
         }
 
         private void btnKreirajPolaznika_Click(object sender, EventArgs e)
@@ -72,11 +69,6 @@ namespace Forme
         private void dataGridPolaznici_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
-        }
-
-        private void dataGridPolaznici_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            MessageBox.Show("Test");
         }
 
         private void dataGridPolaznici_MouseDoubleClick(object sender, MouseEventArgs e)

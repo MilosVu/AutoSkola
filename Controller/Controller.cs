@@ -32,7 +32,7 @@ namespace ControllerClass
 
         private IRepositorySluzbenikAutoSkole repositorySluzbenikAutoSkole;
         private IRepositoryPolaznik repositoryPolaznik = new RepositoryPolaznik();
-        private IRepositoryInstruktor repositoryInstruktor;
+        private IRepositoryInstruktor repositoryInstruktor = new RepositoryInstruktor();
         
         public SluzbenikAutoSkole SluzbenikAutoSkole { get; set; }
 
@@ -69,7 +69,25 @@ namespace ControllerClass
         #endregion
 
         #region Instruktor
+        public BindingList<Instruktor> VratiInstruktore()
+        {
+            return new BindingList<Instruktor>(repositoryInstruktor.VratiInstruktore());
+        }
 
+        public Instruktor VratiInstruktora(Instruktor instruktor)
+        {
+            return repositoryInstruktor.VratiInstruktora(instruktor);
+        }
+
+        public bool ObrisiInstruktora(Instruktor instruktor)
+        {
+            return repositoryInstruktor.ObrisiInstruktora(instruktor);
+        }
+
+        public bool UpdateInstruktora(Instruktor instruktor)
+        {
+            return repositoryInstruktor.UpdateInstruktora(instruktor);
+        }
         #endregion
 
     }
