@@ -40,6 +40,7 @@ namespace Forme
             this.voznjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grupeZaPolaganjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kreirajGrupuZaPolaganjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prikazVoznjiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGlavni.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +97,7 @@ namespace Forme
             // prikazPolaznikaToolStripMenuItem
             // 
             this.prikazPolaznikaToolStripMenuItem.Name = "prikazPolaznikaToolStripMenuItem";
-            this.prikazPolaznikaToolStripMenuItem.Size = new System.Drawing.Size(210, 28);
+            this.prikazPolaznikaToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.prikazPolaznikaToolStripMenuItem.Text = "Prikaz polaznika";
             this.prikazPolaznikaToolStripMenuItem.Click += new System.EventHandler(this.prikazPolaznikaToolStripMenuItem_Click);
             // 
@@ -118,6 +119,8 @@ namespace Forme
             // 
             // voznjeToolStripMenuItem
             // 
+            this.voznjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.prikazVoznjiToolStripMenuItem});
             this.voznjeToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.voznjeToolStripMenuItem.Name = "voznjeToolStripMenuItem";
             this.voznjeToolStripMenuItem.Size = new System.Drawing.Size(73, 28);
@@ -137,6 +140,13 @@ namespace Forme
             this.kreirajGrupuZaPolaganjeToolStripMenuItem.Name = "kreirajGrupuZaPolaganjeToolStripMenuItem";
             this.kreirajGrupuZaPolaganjeToolStripMenuItem.Size = new System.Drawing.Size(281, 28);
             this.kreirajGrupuZaPolaganjeToolStripMenuItem.Text = "Kreiraj grupu za polaganje";
+            // 
+            // prikazVoznjiToolStripMenuItem
+            // 
+            this.prikazVoznjiToolStripMenuItem.Name = "prikazVoznjiToolStripMenuItem";
+            this.prikazVoznjiToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.prikazVoznjiToolStripMenuItem.Text = "Prikaz voznji";
+            this.prikazVoznjiToolStripMenuItem.Click += new System.EventHandler(this.prikazVoznjiToolStripMenuItem_Click);
             // 
             // FormaGlavna
             // 
@@ -172,5 +182,6 @@ namespace Forme
         private System.Windows.Forms.ToolStripMenuItem prikazInstruktoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem grupeZaPolaganjeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kreirajGrupuZaPolaganjeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prikazVoznjiToolStripMenuItem;
     }
 }

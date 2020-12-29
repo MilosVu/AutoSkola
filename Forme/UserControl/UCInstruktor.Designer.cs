@@ -33,11 +33,11 @@ namespace Forme
             this.btnPretraziInstruktora = new System.Windows.Forms.Button();
             this.btnIzbrisiInstruktora = new System.Windows.Forms.Button();
             this.dataGridInstruktori = new System.Windows.Forms.DataGridView();
+            this.lblInstruktori = new System.Windows.Forms.Label();
             this.txtIdPolaznik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbKategorija = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.lblInstruktori = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInstruktori)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,12 +86,27 @@ namespace Forme
             this.dataGridInstruktori.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridInstruktori_CellValueChanged);
             this.dataGridInstruktori.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridInstruktori_MouseDoubleClick);
             // 
+            // lblInstruktori
+            // 
+            this.lblInstruktori.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblInstruktori.AutoSize = true;
+            this.lblInstruktori.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblInstruktori.Font = new System.Drawing.Font("Arial Narrow", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstruktori.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblInstruktori.Location = new System.Drawing.Point(54, 25);
+            this.lblInstruktori.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInstruktori.Name = "lblInstruktori";
+            this.lblInstruktori.Size = new System.Drawing.Size(154, 40);
+            this.lblInstruktori.TabIndex = 5;
+            this.lblInstruktori.Text = "Instruktori";
+            // 
             // txtIdPolaznik
             // 
             this.txtIdPolaznik.DataPropertyName = "IdInstruktora";
             this.txtIdPolaznik.HeaderText = "Id";
             this.txtIdPolaznik.MinimumWidth = 6;
             this.txtIdPolaznik.Name = "txtIdPolaznik";
+            this.txtIdPolaznik.Visible = false;
             // 
             // txtIme
             // 
@@ -116,20 +131,6 @@ namespace Forme
             this.cbKategorija.Name = "cbKategorija";
             this.cbKategorija.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cbKategorija.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // lblInstruktori
-            // 
-            this.lblInstruktori.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblInstruktori.AutoSize = true;
-            this.lblInstruktori.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblInstruktori.Font = new System.Drawing.Font("Arial Narrow", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstruktori.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblInstruktori.Location = new System.Drawing.Point(54, 25);
-            this.lblInstruktori.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblInstruktori.Name = "lblInstruktori";
-            this.lblInstruktori.Size = new System.Drawing.Size(154, 40);
-            this.lblInstruktori.TabIndex = 5;
-            this.lblInstruktori.Text = "Instruktori";
             // 
             // UCInstruktor
             // 

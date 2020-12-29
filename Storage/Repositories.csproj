@@ -44,9 +44,11 @@
     <Compile Include="Implementations\RepositoryInstruktor.cs" />
     <Compile Include="Implementations\RepositoryPolaznik.cs" />
     <Compile Include="Implementations\RepositorySluzbenikAutoSkole.cs" />
+    <Compile Include="Implementations\RepositoryVoznje.cs" />
     <Compile Include="IRepositoryInstruktor.cs" />
     <Compile Include="IRepositoryPolaznik.cs" />
     <Compile Include="IRepositorySluzbenikAutoSkole.cs" />
+    <Compile Include="IRepositoryVoznje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

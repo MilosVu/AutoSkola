@@ -34,17 +34,21 @@ namespace Forme
             SetPanel(new UCPolaznici());
         }
 
+        private void prikazInstruktoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetPanel(new UCInstruktor());
+        }
+
+        private void prikazVoznjiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetPanel(new UCVoznja());
+        }
+
         private void SetPanel(UserControl userControl)
         {
             panelGlavni.Controls.Clear();
             userControl.Parent = panelGlavni;
             userControl.Dock = DockStyle.Fill;
         }
-
-        private void prikazInstruktoraToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SetPanel(new UCInstruktor());
-        }
-    
     }
 }

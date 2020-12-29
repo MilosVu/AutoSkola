@@ -32,14 +32,14 @@ namespace Forme
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPolaznici));
             this.lblPolaznici = new System.Windows.Forms.Label();
             this.dataGridPolaznici = new System.Windows.Forms.DataGridView();
+            this.btnKreirajPolaznika = new System.Windows.Forms.Button();
+            this.btnIzbrisiPolaznika = new System.Windows.Forms.Button();
+            this.btnPretraziPolaznika = new System.Windows.Forms.Button();
             this.txtIdPolaznik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDatumRodjenja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbKategorija = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.btnKreirajPolaznika = new System.Windows.Forms.Button();
-            this.btnIzbrisiPolaznika = new System.Windows.Forms.Button();
-            this.btnPretraziPolaznika = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPolaznici)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,44 +83,6 @@ namespace Forme
             this.dataGridPolaznici.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridPolaznici_DataError);
             this.dataGridPolaznici.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridPolaznici_MouseDoubleClick);
             // 
-            // txtIdPolaznik
-            // 
-            this.txtIdPolaznik.DataPropertyName = "IdPolaznika";
-            this.txtIdPolaznik.HeaderText = "Id";
-            this.txtIdPolaznik.MinimumWidth = 6;
-            this.txtIdPolaznik.Name = "txtIdPolaznik";
-            // 
-            // txtIme
-            // 
-            this.txtIme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.txtIme.DataPropertyName = "Ime";
-            this.txtIme.HeaderText = "Ime";
-            this.txtIme.MinimumWidth = 6;
-            this.txtIme.Name = "txtIme";
-            // 
-            // txtPrezime
-            // 
-            this.txtPrezime.DataPropertyName = "Prezime";
-            this.txtPrezime.HeaderText = "Prezime";
-            this.txtPrezime.MinimumWidth = 6;
-            this.txtPrezime.Name = "txtPrezime";
-            // 
-            // txtDatumRodjenja
-            // 
-            this.txtDatumRodjenja.DataPropertyName = "DatumRodjenja";
-            this.txtDatumRodjenja.HeaderText = "Datum Rodjenja";
-            this.txtDatumRodjenja.MinimumWidth = 6;
-            this.txtDatumRodjenja.Name = "txtDatumRodjenja";
-            // 
-            // cbKategorija
-            // 
-            this.cbKategorija.DataPropertyName = "Kategorija";
-            this.cbKategorija.HeaderText = "Kategorija";
-            this.cbKategorija.MinimumWidth = 6;
-            this.cbKategorija.Name = "cbKategorija";
-            this.cbKategorija.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cbKategorija.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // btnKreirajPolaznika
             // 
             this.btnKreirajPolaznika.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -152,6 +114,45 @@ namespace Forme
             this.btnPretraziPolaznika.TabIndex = 4;
             this.btnPretraziPolaznika.Text = "Pretrazi Polaznika";
             this.btnPretraziPolaznika.UseVisualStyleBackColor = true;
+            // 
+            // txtIdPolaznik
+            // 
+            this.txtIdPolaznik.DataPropertyName = "IdPolaznika";
+            this.txtIdPolaznik.HeaderText = "Id";
+            this.txtIdPolaznik.MinimumWidth = 6;
+            this.txtIdPolaznik.Name = "txtIdPolaznik";
+            this.txtIdPolaznik.Visible = false;
+            // 
+            // txtIme
+            // 
+            this.txtIme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txtIme.DataPropertyName = "Ime";
+            this.txtIme.HeaderText = "Ime";
+            this.txtIme.MinimumWidth = 6;
+            this.txtIme.Name = "txtIme";
+            // 
+            // txtPrezime
+            // 
+            this.txtPrezime.DataPropertyName = "Prezime";
+            this.txtPrezime.HeaderText = "Prezime";
+            this.txtPrezime.MinimumWidth = 6;
+            this.txtPrezime.Name = "txtPrezime";
+            // 
+            // txtDatumRodjenja
+            // 
+            this.txtDatumRodjenja.DataPropertyName = "DatumRodjenja";
+            this.txtDatumRodjenja.HeaderText = "Datum Rodjenja";
+            this.txtDatumRodjenja.MinimumWidth = 6;
+            this.txtDatumRodjenja.Name = "txtDatumRodjenja";
+            // 
+            // cbKategorija
+            // 
+            this.cbKategorija.DataPropertyName = "Kategorija";
+            this.cbKategorija.HeaderText = "Kategorija";
+            this.cbKategorija.MinimumWidth = 6;
+            this.cbKategorija.Name = "cbKategorija";
+            this.cbKategorija.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cbKategorija.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // UCPolaznici
             // 

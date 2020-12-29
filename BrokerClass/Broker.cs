@@ -89,7 +89,7 @@ namespace BrokerClass
                         Ime = (string) reader["Ime"],
                         Prezime = (string) reader["Prezime"],
                         Kategorija = (Kategorija) Enum.Parse(typeof(Kategorija),(string) reader["Kategorija"]),
-                        DatumRodjenja = (DateTime)reader["DatumRodjenja"]
+                        DatumRodjenja = (DateTime) reader["DatumRodjenja"]
                 });
                 }
             }
@@ -203,6 +203,47 @@ namespace BrokerClass
             }
 
             return instruktori;
+        }
+        #endregion
+
+
+        #region Voznje
+        public bool KreirajVoznju(Voznja voznja)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Voznja> VratiVoznje()
+        {
+            List<Voznja> voznje = new List<Voznja>();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT v.IdPolaznika, CONCAT(p.Ime, ' ', p.Prezime) as ImeIPrezimePolaznika,  " +
+                "v.IdInstruktora, CONCAT(i.Ime, ' ', i.Prezime) as ImeIPrezimeInstruktora, v.Datum, v.BrojCasa, " +
+                "v.Realizovan, v.IdAutomobila,  CONCAT(a.Marka, ' ', a.Model) as ModelAutomobila from Voznja as v " +
+                "join Polaznik as p on (v.IdPolaznika = p.IdPolaznika) " +
+                "join Instruktor i on (v.IdInstruktora = i.IdInstruktora) " +
+                "join Automobil a on (v.IdAutomobila = a.IdAutomobila)";
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    voznje.Add(new Voznja()
+                    {
+                        IdPolaznika = (int) reader["IdPolaznika"],
+                        ImeIPrezimePolaznika = (string) reader["ImeIPrezimePolaznika"],
+                        IdInstruktora = (int) reader["IdInstruktora"],
+                        ImeIPrezimeInstruktora = (string) reader["ImeIPrezimeInstruktora"],
+                        Datum = (DateTime) reader["Datum"],
+                        BrojCasa = (int) reader["BrojCasa"],
+                        Realizovan = (bool) reader["Realizovan"],
+                        IdAutomobila = (int) reader["IdAutomobila"],
+                        Automobil = (string) reader["ModelAutomobila"]
+                    });
+                }
+            }
+
+            return voznje;
         }
         #endregion
 
