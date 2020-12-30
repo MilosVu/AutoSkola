@@ -69,6 +69,7 @@ namespace Forme
             // cbKategorija
             // 
             this.cbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbKategorija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKategorija.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbKategorija.FormattingEnabled = true;
             this.cbKategorija.Location = new System.Drawing.Point(224, 317);

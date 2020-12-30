@@ -119,6 +119,7 @@ namespace Forme
             // cbKategorija
             // 
             this.cbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbKategorija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKategorija.FormattingEnabled = true;
             this.cbKategorija.Location = new System.Drawing.Point(199, 302);
             this.cbKategorija.Name = "cbKategorija";

@@ -21,18 +21,10 @@ namespace Storage.Implementations
             return uspelo;
         }
 
-        public Instruktor VratiInstruktora(Instruktor instruktor)
+        public List<Instruktor> VratiInstruktore(Kategorija? kategorija)
         {
             broker.OtvoriKonekciju();
-            Instruktor i = broker.VratiInstruktora(instruktor);
-            broker.ZatvoriKonekciju();
-            return i;
-        }
-
-        public List<Instruktor> VratiInstruktore()
-        {
-            broker.OtvoriKonekciju();
-            List<Instruktor> instruktori = broker.VratiInstruktore();
+            List<Instruktor> instruktori = broker.VratiInstruktore(kategorija);
             broker.ZatvoriKonekciju();
             return instruktori;
         }

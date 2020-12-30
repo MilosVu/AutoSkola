@@ -46,7 +46,6 @@ namespace Forme
                 Prezime = txtPrezime.Text,
                 DatumRodjenja = dateTimePicker.Value,
                 Kategorija = (Kategorija) cbKategorija.SelectedItem
-                //Kategorija = (Kategorija)Enum.Parse(typeof(Kategorija), cbKategorija.SelectedItem as string)
             };
 
             if (controller.KreirajPolaznika(polaznik))
@@ -61,17 +60,7 @@ namespace Forme
                 MessageBox.Show("Sistem ne moze da zapamti novog polaznika.");
             }
         }
-
-        private void PopuniComboBoxKategorije()
-        {
-            cbKategorija.Items.Add(Kategorija.A);
-            cbKategorija.Items.Add(Kategorija.B);
-            cbKategorija.Items.Add(Kategorija.C);
-            cbKategorija.Items.Add(Kategorija.D);
-            cbKategorija.DisplayMember = Kategorija.A.ToString();
-            cbKategorija.ValueMember = "Izaberite kategoriju";
-        }
-
+        
         private void DialogKreirajPolaznika_Load(object sender, EventArgs e)
         {
             FormeHelper.PopuniComboBoxKategorije(cbKategorija);

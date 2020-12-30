@@ -34,6 +34,7 @@ namespace ControllerClass
         private IRepositoryPolaznik repositoryPolaznik = new RepositoryPolaznik();
         private IRepositoryInstruktor repositoryInstruktor = new RepositoryInstruktor();
         private IRepositoryVoznje repositoryVoznje = new RepositoryVoznje();
+        private IRepositoryAutomobili repositoryAutomobili = new RepositoryAutomobili();
 
         public SluzbenikAutoSkole SluzbenikAutoSkole { get; set; }
 
@@ -68,18 +69,14 @@ namespace ControllerClass
         {
             return repositoryPolaznik.UpdatePolaznika(polaznik);
         }
+        
         #endregion
 
 
         #region Instruktor
-        public BindingList<Instruktor> VratiInstruktore()
+        public BindingList<Instruktor> VratiInstruktore(Kategorija? kategorija)
         {
-            return new BindingList<Instruktor>(repositoryInstruktor.VratiInstruktore());
-        }
-
-        public Instruktor VratiInstruktora(Instruktor instruktor)
-        {
-            return repositoryInstruktor.VratiInstruktora(instruktor);
+            return new BindingList<Instruktor>(repositoryInstruktor.VratiInstruktore(kategorija));
         }
 
         public bool ObrisiInstruktora(Instruktor instruktor)
@@ -91,6 +88,7 @@ namespace ControllerClass
         {
             return repositoryInstruktor.UpdateInstruktora(instruktor);
         }
+        
         #endregion
 
 
@@ -100,11 +98,20 @@ namespace ControllerClass
             return repositoryVoznje.KreirajVoznju(voznja);
         }
 
-        public BindingList<Voznja> VratiVoznje()
+        public BindingList<Voznja> VratiVoznje(Kategorija? kategorija)
         {
-            return new BindingList<Voznja>(repositoryVoznje.VratiVoznje());
+            return new BindingList<Voznja>(repositoryVoznje.VratiVoznje(kategorija));
         }
+        
         #endregion
 
+
+        #region Automobili
+        public BindingList<Automobil> VratiAutomobile(Kategorija? kategorija)
+        {
+            return new BindingList<Automobil>(repositoryAutomobili.VratiAutomobile(kategorija));
+        }
+        
+        #endregion
     }
 }

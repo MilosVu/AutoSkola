@@ -9,13 +9,11 @@ namespace Domain
     public class Voznja
     {
 
-        public int IdPolaznika { get; set; }
+        public Kategorija Kategorija { get; set; }
 
-        public string ImeIPrezimePolaznika { get; set; }
+        public Polaznik Polaznik { get; set; }
 
-        public int IdInstruktora { get; set; }
-
-        public string ImeIPrezimeInstruktora { get; set; }
+        public Instruktor Instruktor { get; set; }
 
         public DateTime Datum { get; set; }
 
@@ -23,9 +21,7 @@ namespace Domain
 
         public bool Realizovan { get; set; }
 
-        public int IdAutomobila { get; set; }
-
-        public string Automobil { get; set; }
+        public Automobil Automobil { get; set; }
 
     }
 }

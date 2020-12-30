@@ -16,5 +16,12 @@ namespace Domain
 
         public int Godiste { get; set; }
 
+        public Kategorija Kategorija { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Marka} {Model}";
+        }
+
     }
 }

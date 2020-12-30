@@ -10,9 +10,7 @@ namespace Storage
     public interface IRepositoryInstruktor
     {
 
-        List<Instruktor> VratiInstruktore();
-
-        Instruktor VratiInstruktora(Instruktor instruktor);
+        List<Instruktor> VratiInstruktore(Kategorija? kategorija);
 
         bool ObrisiInstruktora(Instruktor instruktor);
 

@@ -17,5 +17,10 @@ namespace Domain
 
         public Kategorija Kategorija { get; set; }
 
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
+
     }
 }

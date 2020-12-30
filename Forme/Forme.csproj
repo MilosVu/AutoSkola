@@ -50,6 +50,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogKreirajVoznju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogKreirajVoznju.Designer.cs">
+      <DependentUpon>DialogKreirajVoznju.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\Instruktor\DialogPrikazInstruktora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     <Compile Include="UserControl\UCPolaznici.Designer.cs">
       <DependentUpon>UCPolaznici.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DialogKreirajVoznju.resx">
+      <DependentUpon>DialogKreirajVoznju.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Instruktor\DialogPrikazInstruktora.resx">
       <DependentUpon>DialogPrikazInstruktora.cs</DependentUpon>
     </EmbeddedResource>

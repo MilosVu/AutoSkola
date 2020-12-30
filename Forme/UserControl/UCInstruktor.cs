@@ -23,7 +23,7 @@ namespace Forme
         {
             InitializeComponent();
             lblInstruktori.BackColor = System.Drawing.Color.Transparent;
-            instruktori = controller.VratiInstruktore();
+            instruktori = controller.VratiInstruktore(null);
         }
 
         private void UCInstruktor_Load(object sender, EventArgs e)

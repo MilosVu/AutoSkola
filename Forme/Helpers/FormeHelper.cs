@@ -48,10 +48,13 @@ namespace FormeHelpers
 
         public static void PopuniComboBoxKategorije(ComboBox cbKategorija)
         {
+            cbKategorija.DataSource = new Kategorija[] { Kategorija.A, Kategorija.B, Kategorija.C, Kategorija.D };
+            /*
             cbKategorija.Items.Add(Kategorija.A);
             cbKategorija.Items.Add(Kategorija.B);
             cbKategorija.Items.Add(Kategorija.C);
             cbKategorija.Items.Add(Kategorija.D);
+            */
         }
     }
 }

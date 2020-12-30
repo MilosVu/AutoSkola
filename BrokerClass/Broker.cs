@@ -138,6 +138,7 @@ namespace BrokerClass
                 return true;
             }
         }
+        
         #endregion
 
 
@@ -161,11 +162,6 @@ namespace BrokerClass
             return true;
         }
         
-        public Instruktor VratiInstruktora(Instruktor instruktor)
-        {
-            throw new NotImplementedException();
-        }
-        
         public bool ObrisiInstruktora(Instruktor instruktor)
         {
             SqlCommand command = connection.CreateCommand();
@@ -182,11 +178,17 @@ namespace BrokerClass
             }
         }
 
-        public List<Instruktor> VratiInstruktore()
+        public List<Instruktor> VratiInstruktore(Kategorija? kategorija)
         {
             List<Instruktor> instruktori = new List<Instruktor>();
             SqlCommand command = connection.CreateCommand();
             command.CommandText = "SELECT * from Instruktor";
+
+            if (kategorija != null)
+            {
+                command.CommandText += " WHERE Kategorija = @kategorija";
+                command.Parameters.AddWithValue("@kategorija", kategorija.ToString());
+            }
 
             using (SqlDataReader reader = command.ExecuteReader())
             {
@@ -204,25 +206,46 @@ namespace BrokerClass
 
             return instruktori;
         }
+        
         #endregion
 
 
         #region Voznje
         public bool KreirajVoznju(Voznja voznja)
         {
-            throw new NotImplementedException();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "INSERT into Voznja VALUES(@idPolaznika,@idInstruktora," +
+                "@datum, @brojCasa, @realizovan, @idAutomobila)";
+
+            command.Parameters.AddWithValue("@idPolaznika", voznja.Polaznik.IdPolaznika);
+            command.Parameters.AddWithValue("@idInstruktora", voznja.Instruktor.IdInstruktora);
+            command.Parameters.AddWithValue("@datum", voznja.Datum);
+            command.Parameters.AddWithValue("@brojCasa", voznja.BrojCasa);
+            command.Parameters.AddWithValue("@realizovan", voznja.Realizovan);
+            command.Parameters.AddWithValue("@idAutomobila", voznja.Automobil.IdAutomobila);
+
+            if (command.ExecuteNonQuery() != 1)
+            {
+                return false;
+            }
+            return true;
         }
 
-        public List<Voznja> VratiVoznje()
+        public List<Voznja> VratiVoznje(Kategorija? kategorija)
         {
             List<Voznja> voznje = new List<Voznja>();
             SqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT v.IdPolaznika, CONCAT(p.Ime, ' ', p.Prezime) as ImeIPrezimePolaznika,  " +
-                "v.IdInstruktora, CONCAT(i.Ime, ' ', i.Prezime) as ImeIPrezimeInstruktora, v.Datum, v.BrojCasa, " +
-                "v.Realizovan, v.IdAutomobila,  CONCAT(a.Marka, ' ', a.Model) as ModelAutomobila from Voznja as v " +
+
+            command.CommandText = "SELECT * from Voznja as v " +
                 "join Polaznik as p on (v.IdPolaznika = p.IdPolaznika) " +
                 "join Instruktor i on (v.IdInstruktora = i.IdInstruktora) " +
                 "join Automobil a on (v.IdAutomobila = a.IdAutomobila)";
+            
+            /*if(kategorija != null)
+            {
+                command.CommandText += " WHERE Kategorija = @kategorija";
+                command.Parameters.AddWithValue("@kategorija", kategorija);
+            }*/
 
             using (SqlDataReader reader = command.ExecuteReader())
             {
@@ -230,22 +253,74 @@ namespace BrokerClass
                 {
                     voznje.Add(new Voznja()
                     {
-                        IdPolaznika = (int) reader["IdPolaznika"],
-                        ImeIPrezimePolaznika = (string) reader["ImeIPrezimePolaznika"],
-                        IdInstruktora = (int) reader["IdInstruktora"],
-                        ImeIPrezimeInstruktora = (string) reader["ImeIPrezimeInstruktora"],
-                        Datum = (DateTime) reader["Datum"],
-                        BrojCasa = (int) reader["BrojCasa"],
-                        Realizovan = (bool) reader["Realizovan"],
-                        IdAutomobila = (int) reader["IdAutomobila"],
-                        Automobil = (string) reader["ModelAutomobila"]
+                        Polaznik = new Polaznik()
+                        {
+                            IdPolaznika = (int)reader[0],
+                            Ime = (string)reader[7],
+                            Prezime = (string)reader[8],
+                            Kategorija = (Kategorija)Enum.Parse(typeof(Kategorija), (string)reader[10]),
+                            DatumRodjenja = (DateTime)reader[9]
+                        },
+                        Instruktor = new Instruktor()
+                        {
+                            IdInstruktora = (int)reader[1],
+                            Ime = (string)reader[12],
+                            Prezime = (string)reader[13],
+                            Kategorija = (Kategorija)Enum.Parse(typeof(Kategorija), (string)reader[14]),
+                        },
+                        Automobil = new Automobil()
+                        {
+                            IdAutomobila = (int) reader[5],
+                            Marka = (string) reader[16],
+                            Model = (string) reader[17],
+                            Godiste = (int) reader[19],
+                            Kategorija = (Kategorija)Enum.Parse(typeof(Kategorija), (string)reader[18])
+                        },
+                        BrojCasa = (int) reader[3],
+                        Datum = (DateTime) reader[2],
+                        Realizovan = (bool) reader[4],
+                        Kategorija = (Kategorija)Enum.Parse(typeof(Kategorija), (string)reader["Kategorija"]),
                     });
                 }
             }
 
-            return voznje;
+            return kategorija == null ? voznje : voznje.FindAll(voz => voz.Kategorija == kategorija);
         }
+        
         #endregion
 
+
+        #region Automobili
+        public List<Automobil> VratiAutomobile(Kategorija? kategorija)
+        {
+            List<Automobil> automobili= new List<Automobil>();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * from Automobil";
+
+            if(kategorija != null)
+            {
+                command.CommandText += " WHERE Kategorija = @kategorija";
+                command.Parameters.AddWithValue("@kategorija", kategorija.ToString());
+            }
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    automobili.Add(new Automobil()
+                    {
+                        IdAutomobila = (int) reader["IdAutomobila"],
+                        Marka = (string) reader["Marka"],
+                        Model = (string) reader["Model"],
+                        Godiste = (int) reader["Godiste"],
+                        Kategorija = (Kategorija)Enum.Parse(typeof(Kategorija), (string)reader["Kategorija"])
+                    });
+                }
+            }
+
+            return automobili;
+        }
+
+        #endregion
     }
 }

@@ -21,7 +21,7 @@ namespace Domain
 
         public override string ToString()
         {
-            return $"{IdPolaznika} {Ime} {Prezime}";
+            return $"{Ime} {Prezime}";
         }
     }
 }

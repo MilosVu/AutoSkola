@@ -33,16 +33,17 @@ namespace Forme
             this.btnPretraziVoznju = new System.Windows.Forms.Button();
             this.btnKreirajVoznju = new System.Windows.Forms.Button();
             this.dataGridVoznje = new System.Windows.Forms.DataGridView();
-            this.lblVoznje = new System.Windows.Forms.Label();
-            this.IdPolaznika = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImeIPrezimePolaznika = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtIdPolaznik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImeIPrezimeInstruktora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kategorija = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Polaznik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtInstruktor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrojCasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Realizovan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdAutomobila = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Automobil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblVoznje = new System.Windows.Forms.Label();
+            this.cbKategorija = new System.Windows.Forms.ComboBox();
+            this.txtPretraga = new System.Windows.Forms.TextBox();
+            this.lblPretraga = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVoznje)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@ namespace Forme
             this.btnKreirajVoznju.TabIndex = 12;
             this.btnKreirajVoznju.Text = "Kreiraj Voznju";
             this.btnKreirajVoznju.UseVisualStyleBackColor = true;
+            this.btnKreirajVoznju.Click += new System.EventHandler(this.btnKreirajVoznju_Click);
             // 
             // dataGridVoznje
             // 
@@ -76,14 +78,12 @@ namespace Forme
             this.dataGridVoznje.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridVoznje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridVoznje.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdPolaznika,
-            this.ImeIPrezimePolaznika,
-            this.txtIdPolaznik,
-            this.ImeIPrezimeInstruktora,
+            this.Kategorija,
+            this.Polaznik,
+            this.txtInstruktor,
             this.Datum,
             this.BrojCasa,
             this.Realizovan,
-            this.IdAutomobila,
             this.Automobil});
             this.dataGridVoznje.Location = new System.Drawing.Point(4, 84);
             this.dataGridVoznje.Margin = new System.Windows.Forms.Padding(4);
@@ -93,49 +93,26 @@ namespace Forme
             this.dataGridVoznje.Size = new System.Drawing.Size(1213, 454);
             this.dataGridVoznje.TabIndex = 11;
             // 
-            // lblVoznje
+            // Kategorija
             // 
-            this.lblVoznje.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblVoznje.AutoSize = true;
-            this.lblVoznje.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblVoznje.Font = new System.Drawing.Font("Arial Narrow", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoznje.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblVoznje.Location = new System.Drawing.Point(53, 25);
-            this.lblVoznje.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVoznje.Name = "lblVoznje";
-            this.lblVoznje.Size = new System.Drawing.Size(106, 40);
-            this.lblVoznje.TabIndex = 10;
-            this.lblVoznje.Text = "Voznje";
+            this.Kategorija.DataPropertyName = "Kategorija";
+            this.Kategorija.HeaderText = "Kategorija";
+            this.Kategorija.MinimumWidth = 6;
+            this.Kategorija.Name = "Kategorija";
             // 
-            // IdPolaznika
+            // Polaznik
             // 
-            this.IdPolaznika.DataPropertyName = "IdPolaznika";
-            this.IdPolaznika.HeaderText = "IdPolaznika";
-            this.IdPolaznika.MinimumWidth = 6;
-            this.IdPolaznika.Name = "IdPolaznika";
-            this.IdPolaznika.Visible = false;
+            this.Polaznik.DataPropertyName = "Polaznik";
+            this.Polaznik.HeaderText = "Polaznik";
+            this.Polaznik.MinimumWidth = 6;
+            this.Polaznik.Name = "Polaznik";
             // 
-            // ImeIPrezimePolaznika
+            // txtInstruktor
             // 
-            this.ImeIPrezimePolaznika.DataPropertyName = "ImeIPrezimePolaznika";
-            this.ImeIPrezimePolaznika.HeaderText = "Ime i prezime polaznika";
-            this.ImeIPrezimePolaznika.MinimumWidth = 6;
-            this.ImeIPrezimePolaznika.Name = "ImeIPrezimePolaznika";
-            // 
-            // txtIdPolaznik
-            // 
-            this.txtIdPolaznik.DataPropertyName = "IdInstruktora";
-            this.txtIdPolaznik.HeaderText = "IdInstruktora";
-            this.txtIdPolaznik.MinimumWidth = 6;
-            this.txtIdPolaznik.Name = "txtIdPolaznik";
-            this.txtIdPolaznik.Visible = false;
-            // 
-            // ImeIPrezimeInstruktora
-            // 
-            this.ImeIPrezimeInstruktora.DataPropertyName = "ImeIPrezimeInstruktora";
-            this.ImeIPrezimeInstruktora.HeaderText = "Ime i prezime instruktora";
-            this.ImeIPrezimeInstruktora.MinimumWidth = 6;
-            this.ImeIPrezimeInstruktora.Name = "ImeIPrezimeInstruktora";
+            this.txtInstruktor.DataPropertyName = "Instruktor";
+            this.txtInstruktor.HeaderText = "Instruktor";
+            this.txtInstruktor.MinimumWidth = 6;
+            this.txtInstruktor.Name = "txtInstruktor";
             // 
             // Datum
             // 
@@ -158,14 +135,6 @@ namespace Forme
             this.Realizovan.MinimumWidth = 6;
             this.Realizovan.Name = "Realizovan";
             // 
-            // IdAutomobila
-            // 
-            this.IdAutomobila.DataPropertyName = "IdAutomobila";
-            this.IdAutomobila.HeaderText = "IdAutomobila";
-            this.IdAutomobila.MinimumWidth = 6;
-            this.IdAutomobila.Name = "IdAutomobila";
-            this.IdAutomobila.Visible = false;
-            // 
             // Automobil
             // 
             this.Automobil.DataPropertyName = "Automobil";
@@ -173,12 +142,61 @@ namespace Forme
             this.Automobil.MinimumWidth = 6;
             this.Automobil.Name = "Automobil";
             // 
+            // lblVoznje
+            // 
+            this.lblVoznje.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblVoznje.AutoSize = true;
+            this.lblVoznje.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblVoznje.Font = new System.Drawing.Font("Arial Narrow", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVoznje.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblVoznje.Location = new System.Drawing.Point(53, 25);
+            this.lblVoznje.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVoznje.Name = "lblVoznje";
+            this.lblVoznje.Size = new System.Drawing.Size(106, 40);
+            this.lblVoznje.TabIndex = 10;
+            this.lblVoznje.Text = "Voznje";
+            // 
+            // cbKategorija
+            // 
+            this.cbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbKategorija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKategorija.FormattingEnabled = true;
+            this.cbKategorija.Location = new System.Drawing.Point(1032, 33);
+            this.cbKategorija.Name = "cbKategorija";
+            this.cbKategorija.Size = new System.Drawing.Size(151, 32);
+            this.cbKategorija.TabIndex = 14;
+            this.cbKategorija.SelectedIndexChanged += new System.EventHandler(this.cbKategorija_SelectedIndexChanged);
+            // 
+            // txtPretraga
+            // 
+            this.txtPretraga.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPretraga.Location = new System.Drawing.Point(797, 35);
+            this.txtPretraga.Name = "txtPretraga";
+            this.txtPretraga.Size = new System.Drawing.Size(202, 30);
+            this.txtPretraga.TabIndex = 15;
+            this.txtPretraga.TextChanged += new System.EventHandler(this.txtPretraga_TextChanged);
+            // 
+            // lblPretraga
+            // 
+            this.lblPretraga.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPretraga.AutoSize = true;
+            this.lblPretraga.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblPretraga.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPretraga.Location = new System.Drawing.Point(714, 41);
+            this.lblPretraga.Name = "lblPretraga";
+            this.lblPretraga.Size = new System.Drawing.Size(77, 24);
+            this.lblPretraga.TabIndex = 16;
+            this.lblPretraga.Text = "Pretraga:";
+            // 
             // UCVoznja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.lblPretraga);
+            this.Controls.Add(this.txtPretraga);
+            this.Controls.Add(this.cbKategorija);
             this.Controls.Add(this.btnPretraziVoznju);
             this.Controls.Add(this.btnKreirajVoznju);
             this.Controls.Add(this.dataGridVoznje);
@@ -200,14 +218,15 @@ namespace Forme
         private System.Windows.Forms.Button btnKreirajVoznju;
         private System.Windows.Forms.DataGridView dataGridVoznje;
         private System.Windows.Forms.Label lblVoznje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdPolaznika;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ImeIPrezimePolaznika;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtIdPolaznik;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ImeIPrezimeInstruktora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kategorija;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Polaznik;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtInstruktor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrojCasa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Realizovan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdAutomobila;
         private System.Windows.Forms.DataGridViewTextBoxColumn Automobil;
+        private System.Windows.Forms.ComboBox cbKategorija;
+        private System.Windows.Forms.TextBox txtPretraga;
+        private System.Windows.Forms.Label lblPretraga;
     }
 }

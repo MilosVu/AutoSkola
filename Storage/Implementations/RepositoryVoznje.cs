@@ -15,13 +15,16 @@ namespace Storage.Implementations
 
         public bool KreirajVoznju(Voznja voznja)
         {
-            throw new NotImplementedException();
+            broker.OtvoriKonekciju();
+            bool uspelo = broker.KreirajVoznju(voznja);
+            broker.ZatvoriKonekciju();
+            return uspelo;
         }
         
-        public List<Voznja> VratiVoznje()
+        public List<Voznja> VratiVoznje(Kategorija? kategorija)
         {
             broker.OtvoriKonekciju();
-            List<Voznja> voznje = broker.VratiVoznje();
+            List<Voznja> voznje = broker.VratiVoznje(kategorija);
             broker.ZatvoriKonekciju();
             return voznje;
         }

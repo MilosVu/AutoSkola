@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace Storage
 {
-    public interface IRepositoryVoznje
+    public interface IRepositoryAutomobili
     {
 
-        List<Voznja> VratiVoznje(Kategorija? kategorija);
-
-        bool KreirajVoznju(Voznja voznja);
+        List<Automobil> VratiAutomobile(Kategorija? kategorija);
 
     }
 }
