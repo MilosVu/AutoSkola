@@ -93,8 +93,8 @@ namespace BrokerClass
                 });
                 }
             }
-
             return polaznici;
+            //return kategorija == null ? polaznici : polaznici.FindAll(pol => pol.Kategorija == kategorija); ;
         }
 
         public Polaznik VratiPolaznika(Polaznik polaznik)
@@ -319,6 +319,21 @@ namespace BrokerClass
             }
 
             return automobili;
+        }
+
+        #endregion
+
+
+        #region
+
+        public bool KreirajGrupuZaPolaganje(List<Polaznik> polaznici)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<GrupaZaPolaganje> VratiGrupeZaPolaganje()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

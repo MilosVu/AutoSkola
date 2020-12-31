@@ -35,6 +35,8 @@ namespace ControllerClass
         private IRepositoryInstruktor repositoryInstruktor = new RepositoryInstruktor();
         private IRepositoryVoznje repositoryVoznje = new RepositoryVoznje();
         private IRepositoryAutomobili repositoryAutomobili = new RepositoryAutomobili();
+        private IRepositoryGrupeZaPolaganje RepositoryGrupeZaPolaganje = new RepositoryGrupeZaPolaganje();
+
 
         public SluzbenikAutoSkole SluzbenikAutoSkole { get; set; }
 
@@ -111,7 +113,22 @@ namespace ControllerClass
         {
             return new BindingList<Automobil>(repositoryAutomobili.VratiAutomobile(kategorija));
         }
-        
+
+        #endregion
+
+
+        #region Grupa za polaganje
+
+        public bool KreirajGrupuZaPolaganje(List<Polaznik> polaznici, GrupaZaPolaganje grupaZaPolaganje)
+        {
+            return RepositoryGrupeZaPolaganje.KreirajGrupuZaPolaganje(polaznici);
+        }
+
+        public BindingList<GrupaZaPolaganje> VratiGrupeZaPolaganje()
+        {
+            return new BindingList<GrupaZaPolaganje>(RepositoryGrupeZaPolaganje.VratiGrupeZaPolaganje());
+        }
+
         #endregion
     }
 }

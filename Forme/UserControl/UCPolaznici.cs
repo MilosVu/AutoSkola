@@ -18,17 +18,24 @@ namespace Forme
 
         public static BindingList<Polaznik> polaznici;
         private Controller controller = Controller.Instance;
+        private bool zavrseno = false;
 
         public UCPolaznici()
         {
             InitializeComponent();
             lblPolaznici.BackColor = System.Drawing.Color.Transparent;
             polaznici = controller.VratiPolaznike();
+            cbKategorijeZaPretragu.Items.Add("Sve kategorije");
+            cbKategorijeZaPretragu.Items.Add(Domain.Kategorija.A);
+            cbKategorijeZaPretragu.Items.Add(Domain.Kategorija.B);
+            cbKategorijeZaPretragu.Items.Add(Domain.Kategorija.C);
+            cbKategorijeZaPretragu.Items.Add(Domain.Kategorija.D);
         }
 
         private void UCPolaznici_Load(object sender, EventArgs e)
         {
             FormeHelper.PopuniComboBoxKategorijeDataGrid(cbKategorija);
+            cbKategorijeZaPretragu.SelectedIndex = 0;
             dataGridPolaznici.DataSource = polaznici;
         }
 
@@ -40,7 +47,7 @@ namespace Forme
 
         private void btnIzbrisiPolaznika_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Da li ste sigurni da zelite da obrisete polaznika",
+            var result = MessageBox.Show("Da li ste sigurni da želite da izbrišete polaznika",
                 "Brisanje", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.No) 
@@ -60,6 +67,15 @@ namespace Forme
 
         private void dataGridPolaznici_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (!zavrseno)
+                return;
+
+            var result = MessageBox.Show("Da li ste sigurni da želite da promenite podatke polaznika",
+                "Promena podataka", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.No)
+                return;
+
             if (dataGridPolaznici.CurrentRow == null)
                 return;
             Polaznik polaznik = dataGridPolaznici.CurrentRow.DataBoundItem as Polaznik;
@@ -76,6 +92,44 @@ namespace Forme
             DialogPrikazPolaznika dialogPrikazPolaznika = 
                 new DialogPrikazPolaznika(dataGridPolaznici.CurrentRow.DataBoundItem as Polaznik);
             dialogPrikazPolaznika.ShowDialog();
+        }
+
+        private void dataGridPolaznici_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            zavrseno = true;
+        }
+
+        private void cbKategorije_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbKategorijeZaPretragu.SelectedIndex == 0)
+            {
+                dataGridPolaznici.DataSource = controller.VratiPolaznike();
+            }
+            else
+            {
+                dataGridPolaznici.DataSource = new List<Polaznik>(polaznici).FindAll(p => p.Kategorija == (Kategorija) cbKategorijeZaPretragu.SelectedItem);
+            }
+            dataGridPolaznici.Refresh();
+            
+        }
+
+        private void btnDodajGrupuZaPolaganje_Click(object sender, EventArgs e)
+        {
+            int counter = dataGridPolaznici.SelectedRows.Count;
+            if (counter == 0)
+            {
+                MessageBox.Show("Nijedan polaznik nije selektovan.");
+                return;
+            }
+
+            List<Polaznik> selektovaniPolaznici = new List<Polaznik>();
+            for(int i = 0; i < counter; i++)
+            {
+                selektovaniPolaznici.Add((Polaznik)dataGridPolaznici.SelectedRows[i].DataBoundItem);
+            }
+
+            DialogKreirajGrupuZaPolaganje kreirajGrupuZaPolaganje = new DialogKreirajGrupuZaPolaganje(selektovaniPolaznici);
+            kreirajGrupuZaPolaganje.ShowDialog();
         }
     }
 }

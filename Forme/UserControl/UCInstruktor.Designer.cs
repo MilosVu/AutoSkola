@@ -76,6 +76,7 @@ namespace Forme
             this.txtIme,
             this.txtPrezime,
             this.cbKategorija});
+            this.dataGridInstruktori.Enabled = false;
             this.dataGridInstruktori.Location = new System.Drawing.Point(4, 84);
             this.dataGridInstruktori.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridInstruktori.Name = "dataGridInstruktori";

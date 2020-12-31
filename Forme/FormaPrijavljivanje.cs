@@ -21,12 +21,10 @@ namespace Forme
         public FormaPrijavljivanje()
         {
             InitializeComponent();
-            FormeHelper.PostaviPozadinuTransparentnu(new Label[]{
-                lblFormaZaPrijavljivanje,lblKorisnickoIme,lblLozinka
-            });
             txtKorisnickoIme.Text = "admin";
             txtLozinka.Text = "admin";
             controller = Controller.Instance;
+
         }
 
         private void btnPrijaviSe_Click(object sender, EventArgs e)
@@ -50,7 +48,7 @@ namespace Forme
                 FormaGlavna formaGlavna = new FormaGlavna();
                 this.Visible = false;
                 formaGlavna.ShowDialog();
-                this.Visible = true;
+                this.Dispose();
             }
             else
             {

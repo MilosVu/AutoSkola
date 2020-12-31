@@ -17,5 +17,7 @@ namespace Domain
 
         public VrstaIspita VrstaIspita{ get; set; }
 
+        public List<Polaznik> Polaznici { get; set; }
+
     }
 }

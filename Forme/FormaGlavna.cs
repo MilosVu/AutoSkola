@@ -20,7 +20,6 @@ namespace Forme
         public FormaGlavna()
         {
             InitializeComponent();
-            FormeHelper.PostaviPozadinuTransparentnu(new Label[] { lblUlogovanKorisnik });
             this.controller = Controller.Instance;
         }
 

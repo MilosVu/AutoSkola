@@ -53,7 +53,6 @@ namespace Forme
             {
                 dataGridVoznje.DataSource = controller.VratiVoznje((Kategorija) cbKategorija.SelectedItem);
             }
-                //dataGridVoznje.DataSource = voznje;
                 dataGridVoznje.Refresh();
         }
 

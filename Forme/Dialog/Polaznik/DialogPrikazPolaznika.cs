@@ -24,9 +24,6 @@ namespace Forme
             InitializeComponent();
             this.polaznik = polaznik;
             this.controller = Controller.Instance;
-            FormeHelper.PostaviPozadinuTransparentnu(new Label[]{
-            lblDatumRodjenja, lblIme, lblKategorija, lblPolaznik, lblPrezime
-            });
             FormeHelper.PopuniComboBoxKategorije(cbKategorija);
         }
 

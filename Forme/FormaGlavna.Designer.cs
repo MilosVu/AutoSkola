@@ -29,7 +29,6 @@ namespace Forme
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormaGlavna));
             this.panelGlavni = new System.Windows.Forms.Panel();
             this.lblUlogovanKorisnik = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -47,7 +46,7 @@ namespace Forme
             // 
             // panelGlavni
             // 
-            this.panelGlavni.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelGlavni.BackgroundImage")));
+            this.panelGlavni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.panelGlavni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelGlavni.Controls.Add(this.lblUlogovanKorisnik);
             this.panelGlavni.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -61,17 +60,18 @@ namespace Forme
             // 
             this.lblUlogovanKorisnik.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUlogovanKorisnik.AutoSize = true;
-            this.lblUlogovanKorisnik.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblUlogovanKorisnik.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
             this.lblUlogovanKorisnik.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUlogovanKorisnik.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblUlogovanKorisnik.Location = new System.Drawing.Point(109, 167);
+            this.lblUlogovanKorisnik.Location = new System.Drawing.Point(12, 47);
             this.lblUlogovanKorisnik.Name = "lblUlogovanKorisnik";
-            this.lblUlogovanKorisnik.Size = new System.Drawing.Size(167, 29);
+            this.lblUlogovanKorisnik.Size = new System.Drawing.Size(215, 36);
             this.lblUlogovanKorisnik.TabIndex = 2;
-            this.lblUlogovanKorisnik.Text = "Ulogovan korisnik";
+            this.lblUlogovanKorisnik.Text = "Ulogovan korisnik:";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.polazniciToolStripMenuItem,
@@ -129,7 +129,7 @@ namespace Forme
             // prikazVoznjiToolStripMenuItem
             // 
             this.prikazVoznjiToolStripMenuItem.Name = "prikazVoznjiToolStripMenuItem";
-            this.prikazVoznjiToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.prikazVoznjiToolStripMenuItem.Size = new System.Drawing.Size(193, 28);
             this.prikazVoznjiToolStripMenuItem.Text = "Prikazi voznje";
             this.prikazVoznjiToolStripMenuItem.Click += new System.EventHandler(this.prikazVoznjiToolStripMenuItem_Click);
             // 
