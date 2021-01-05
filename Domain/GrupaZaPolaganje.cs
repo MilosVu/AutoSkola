@@ -10,12 +10,14 @@ namespace Domain
     {
 
         public int IdGrupeZaPolaganje { get; set; }
-
-        public DateTime Datum { get; set; }
-
+        
         public Kategorija Kategorija { get; set; }
 
         public VrstaIspita VrstaIspita{ get; set; }
+
+        public DateTime Datum { get; set; }
+
+        public string Sala { get; set; }
 
         public List<Polaznik> Polaznici { get; set; }
 

@@ -13,17 +13,45 @@ namespace Storage.Implementations
 
         private Broker broker = new Broker();
 
-        public bool KreirajGrupuZaPolaganje(List<Polaznik> polaznici)
+        public bool KreirajGrupuZaPolaganje(List<Polaznik> polaznici, GrupaZaPolaganje grupaZaPolaganje)
         {
-            broker.OtvoriKonekciju();
-            bool uspelo = broker.KreirajGrupuZaPolaganje);
-            broker.ZatvoriKonekciju();
-            return uspelo;
+            try
+            {
+
+                broker.OtvoriKonekciju();
+                broker.ZapocniTransakciju();
+                int id = broker.KreirajGrupuZaPolaganje(grupaZaPolaganje);
+                foreach (Polaznik p in polaznici)
+                {
+                    broker.KreirajPolaznikaIGrupuZaPolaganje(p, id);
+                }
+                broker.Commit();
+                return true;
+            }
+            catch (Exception)
+            {
+                broker.Rollback();
+                return false;
+            }
+            finally{
+                broker.ZatvoriKonekciju();
+            }
         }
 
         public List<GrupaZaPolaganje> VratiGrupeZaPolaganje()
         {
-            throw new NotImplementedException();
+            broker.OtvoriKonekciju();
+            List<GrupaZaPolaganje> grupeZaPolaganje = broker.VratiGrupeZaPolaganje();
+            broker.ZatvoriKonekciju();
+            return grupeZaPolaganje;
+        }
+
+        public List<Polaznik> VratiPolaznikaIGrupeZaPolaganje(int idGrupeZaPolaganje)
+        {
+            broker.OtvoriKonekciju();
+            List<Polaznik> polaznici = broker.VratiPolaznikaIGrupeZaPolaganje(idGrupeZaPolaganje);
+            broker.ZatvoriKonekciju();
+            return polaznici;
         }
     }
 }

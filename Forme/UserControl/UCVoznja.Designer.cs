@@ -41,7 +41,6 @@ namespace Forme
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrojCasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Automobil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Realizovan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVoznje)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,14 +73,14 @@ namespace Forme
             this.txtInstruktor,
             this.Datum,
             this.BrojCasa,
-            this.Automobil,
-            this.Realizovan});
-            this.dataGridVoznje.Enabled = false;
+            this.Automobil});
             this.dataGridVoznje.Location = new System.Drawing.Point(4, 84);
             this.dataGridVoznje.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridVoznje.Name = "dataGridVoznje";
+            this.dataGridVoznje.ReadOnly = true;
             this.dataGridVoznje.RowHeadersWidth = 51;
             this.dataGridVoznje.RowTemplate.Height = 24;
+            this.dataGridVoznje.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridVoznje.Size = new System.Drawing.Size(1213, 454);
             this.dataGridVoznje.TabIndex = 11;
             // 
@@ -139,6 +138,7 @@ namespace Forme
             this.Kategorija.HeaderText = "Kategorija";
             this.Kategorija.MinimumWidth = 6;
             this.Kategorija.Name = "Kategorija";
+            this.Kategorija.ReadOnly = true;
             // 
             // Polaznik
             // 
@@ -146,6 +146,7 @@ namespace Forme
             this.Polaznik.HeaderText = "Polaznik";
             this.Polaznik.MinimumWidth = 6;
             this.Polaznik.Name = "Polaznik";
+            this.Polaznik.ReadOnly = true;
             // 
             // txtInstruktor
             // 
@@ -153,6 +154,7 @@ namespace Forme
             this.txtInstruktor.HeaderText = "Instruktor";
             this.txtInstruktor.MinimumWidth = 6;
             this.txtInstruktor.Name = "txtInstruktor";
+            this.txtInstruktor.ReadOnly = true;
             // 
             // Datum
             // 
@@ -160,6 +162,7 @@ namespace Forme
             this.Datum.HeaderText = "Datum";
             this.Datum.MinimumWidth = 6;
             this.Datum.Name = "Datum";
+            this.Datum.ReadOnly = true;
             // 
             // BrojCasa
             // 
@@ -167,6 +170,7 @@ namespace Forme
             this.BrojCasa.HeaderText = "Broja casa";
             this.BrojCasa.MinimumWidth = 6;
             this.BrojCasa.Name = "BrojCasa";
+            this.BrojCasa.ReadOnly = true;
             // 
             // Automobil
             // 
@@ -174,13 +178,7 @@ namespace Forme
             this.Automobil.HeaderText = "Automobil";
             this.Automobil.MinimumWidth = 6;
             this.Automobil.Name = "Automobil";
-            // 
-            // Realizovan
-            // 
-            this.Realizovan.DataPropertyName = "Realizovana";
-            this.Realizovan.HeaderText = "Realizovan";
-            this.Realizovan.MinimumWidth = 6;
-            this.Realizovan.Name = "Realizovan";
+            this.Automobil.ReadOnly = true;
             // 
             // UCVoznja
             // 
@@ -218,6 +216,5 @@ namespace Forme
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrojCasa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Automobil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Realizovan;
     }
 }

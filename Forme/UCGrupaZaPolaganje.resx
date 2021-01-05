@@ -117,25 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Kategorija.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Polaznik.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="txtInstruktor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Datum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="BrojCasa.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Realizovan.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Automobil.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnStrelicaUNazad.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAgxJREFUeF7t2c9qk0EUhvF4Qy7cKRWqm4KohVLvzHsQvCZ3/lm4UcGdYPocOQNh
+        +NKczMBnE54fHEjTDB95mcn7hWwkSZIkSZLOxna7fctc5p86Rob3nfnGXOTTqiCwG+YX08RjQ6wgqCvm
+        d6TWiZ3ocb4PAcXOWwqviSP9PF+uXQQTn3m7x3bJF+ZlLlFDKK0w7hP/j+P9KJcpEEhfGEt+MM9yiRpC
+        2VcYuyK8F7lEDaEcKowQx9ad1yOUamFc5RI1hGJhjCIQC2MUoVgYowjFwhhFKJXC+MpYGD1CsTBGEYiF
+        MYpQLIxRhGJhjCIUC2MUoVgYowikUhg/GY9tj1AqhfGXec+8e8DzNN/SerhopTBOxcd8W+vggpXCOCXr
+        BcjFKoVxalYN8JKJ32nPyepH+ILxCM/gohHiuezE9QMMXDiO86HPw7iN+cAs3T48lFn/Nqbh4nEveCjE
+        OO5vcol6hFMplgjxlvGr3BKCqRRLfKW7ziXqEU6lWP4w14w7cQnBVIolduJtLlGPcCrFEiFaLPsQTqVY
+        /u1ExuO8hGAsllmEY7HMIhiLZRbhVIvldS5Rj3AsllkEY7HMIhyLZRbBWCyzCMdimUU4FsssgqkWy6tc
+        oh7hHCqWT8yTfLmWENC+Yonw/t/vFqeEoPpiicfuvGMQWCuWz8zjfFrHILj4TDQ8SZIkSZJ0LjabO54H
+        PNNB1YDiAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

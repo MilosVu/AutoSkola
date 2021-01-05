@@ -34,7 +34,21 @@ namespace Forme
 
         private void btnDodajGrupuZaPolaganje_Click(object sender, EventArgs e)
         {
-            controller.KreirajGrupuZaPolaganje(polaznici);
+            GrupaZaPolaganje grupaZaPolaganje = new GrupaZaPolaganje()
+            {
+                Datum = dateTimePicker.Value,
+                Kategorija = polaznici[0].Kategorija,
+                VrstaIspita = (VrstaIspita) cbVrstaIspita.SelectedItem,
+                Sala = txtSala.Text
+            };
+            if(controller.KreirajGrupuZaPolaganje(polaznici, grupaZaPolaganje))
+            {
+                MessageBox.Show("Kreirana je nova grupa za polaganje.");
+            }
+            else
+            {
+                MessageBox.Show("Sistem ne moze da kreira novu grupu za polaganje.");
+            }
         }
     }
 }

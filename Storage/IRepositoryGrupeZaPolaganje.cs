@@ -7,9 +7,10 @@ namespace Storage
 {
     public interface IRepositoryGrupeZaPolaganje
     {
-        bool KreirajGrupuZaPolaganje(List<Polaznik> polaznici);
+        bool KreirajGrupuZaPolaganje(List<Polaznik> polaznici, GrupaZaPolaganje grupaZaPolaganje);
 
         List<GrupaZaPolaganje> VratiGrupeZaPolaganje();
 
+        List<Polaznik> VratiPolaznikaIGrupeZaPolaganje(int idGrupeZaPolaganje);
     }
 }

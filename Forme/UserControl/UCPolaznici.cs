@@ -74,7 +74,11 @@ namespace Forme
                 "Promena podataka", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.No)
+            {
+                dataGridPolaznici.CancelEdit();
+                dataGridPolaznici.RefreshEdit();
                 return;
+            }
 
             if (dataGridPolaznici.CurrentRow == null)
                 return;
@@ -126,6 +130,13 @@ namespace Forme
             for(int i = 0; i < counter; i++)
             {
                 selektovaniPolaznici.Add((Polaznik)dataGridPolaznici.SelectedRows[i].DataBoundItem);
+            }
+
+            Kategorija kategorija = selektovaniPolaznici[0].Kategorija;
+            if (!selektovaniPolaznici.All(p => p.Kategorija == kategorija))
+            {
+                MessageBox.Show("Svi selektovani polaznici moraju polagati za istu kategoriju.");
+                return;
             }
 
             DialogKreirajGrupuZaPolaganje kreirajGrupuZaPolaganje = new DialogKreirajGrupuZaPolaganje(selektovaniPolaznici);

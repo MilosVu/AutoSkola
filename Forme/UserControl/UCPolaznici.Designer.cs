@@ -79,6 +79,7 @@ namespace Forme
             this.dataGridPolaznici.Name = "dataGridPolaznici";
             this.dataGridPolaznici.RowHeadersWidth = 51;
             this.dataGridPolaznici.RowTemplate.Height = 24;
+            this.dataGridPolaznici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPolaznici.Size = new System.Drawing.Size(954, 454);
             this.dataGridPolaznici.TabIndex = 1;
             this.dataGridPolaznici.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPolaznici_CellValueChanged);

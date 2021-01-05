@@ -12,6 +12,7 @@ namespace BrokerClass
     {
 
         private SqlConnection connection;
+        private SqlTransaction transaction;
 
         public Broker()
         {
@@ -25,10 +26,24 @@ namespace BrokerClass
             connection.Open();
         }
 
-
         public void ZatvoriKonekciju()
         {
             connection.Close();
+        }
+
+        public void ZapocniTransakciju()
+        {
+            this.transaction = connection.BeginTransaction();
+        }
+
+        public void Commit()
+        {
+            transaction.Commit();
+        }
+
+        public void Rollback()
+        {
+            transaction.Rollback();
         }
 
         #endregion
@@ -240,12 +255,6 @@ namespace BrokerClass
                 "join Polaznik as p on (v.IdPolaznika = p.IdPolaznika) " +
                 "join Instruktor i on (v.IdInstruktora = i.IdInstruktora) " +
                 "join Automobil a on (v.IdAutomobila = a.IdAutomobila)";
-            
-            /*if(kategorija != null)
-            {
-                command.CommandText += " WHERE Kategorija = @kategorija";
-                command.Parameters.AddWithValue("@kategorija", kategorija);
-            }*/
 
             using (SqlDataReader reader = command.ExecuteReader())
             {
@@ -326,14 +335,80 @@ namespace BrokerClass
 
         #region
 
-        public bool KreirajGrupuZaPolaganje(List<Polaznik> polaznici)
+        public int KreirajGrupuZaPolaganje(GrupaZaPolaganje grupaZaPolaganje)
         {
-            throw new NotImplementedException();
+            int id = 0;
+            
+            SqlCommand command = connection.CreateCommand();
+            command.Transaction = transaction;
+            command.CommandText = "INSERT into GrupaZaPolaganje output inserted.IdGrupeZaPolaganje " +
+                "VALUES(@datum, @kategorija, @vrstaIspita, @sala)";
+            command.Parameters.AddWithValue("datum", grupaZaPolaganje.Datum);
+            command.Parameters.AddWithValue("@kategorija", grupaZaPolaganje.Kategorija.ToString());
+            command.Parameters.AddWithValue("@vrstaIspita", grupaZaPolaganje.VrstaIspita.ToString());
+            command.Parameters.AddWithValue("@sala", grupaZaPolaganje.Sala);
+            id = (int) command.ExecuteScalar();
+
+            return id;
         }
 
+        public bool KreirajPolaznikaIGrupuZaPolaganje(Polaznik polaznik, int id)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.Transaction = transaction;
+            command.CommandText = "INSERT into PolaznikIGrupaZaPolaganje VALUES(@idPolaznika, @idGrupeZaPolaganje)";
+            command.Parameters.AddWithValue("@idPolaznika", polaznik.IdPolaznika);
+            command.Parameters.AddWithValue("@idGrupeZaPolaganje", id);
+
+            return command.ExecuteNonQuery() == 1;
+        }
+ 
         public List<GrupaZaPolaganje> VratiGrupeZaPolaganje()
         {
-            throw new NotImplementedException();
+            List<GrupaZaPolaganje> grupaZaPolaganje = new List<GrupaZaPolaganje>();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * from GrupaZaPolaganje";
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    grupaZaPolaganje.Add(new GrupaZaPolaganje()
+                    {
+                        IdGrupeZaPolaganje = (int)reader["IdGrupeZaPolaganje"],
+                        Datum = (DateTime) reader["Datum"],
+                        Sala = (string) reader["Sala"],
+                        Kategorija = (Kategorija) Enum.Parse(typeof(Kategorija), (string)reader["Kategorija"]),
+                        VrstaIspita = (VrstaIspita) Enum.Parse(typeof(VrstaIspita), (string)reader["VrstaIspita"])
+                    });
+                }
+            }
+            return grupaZaPolaganje;
+        }
+
+        public List<Polaznik> VratiPolaznikaIGrupeZaPolaganje(int idGrupeZaPolaganje)
+        {
+            List<Polaznik> polaznici = new List<Polaznik>();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * from PolaznikIGrupaZaPolaganje gp join Polaznik p " +
+                "on(gp.IdPolaznika = p.IdPolaznika) WHERE IdGrupeZaPolaganje = @idGrupeZaPolaganje";
+            command.Parameters.AddWithValue("@idGrupeZaPolaganje", idGrupeZaPolaganje);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    polaznici.Add(new Polaznik()
+                    {
+                        IdPolaznika = (int)reader["IdPolaznika"],
+                        Ime = (string)reader["Ime"],
+                        Prezime = (string)reader["Prezime"],
+                        Kategorija = (Kategorija)Enum.Parse(typeof(Kategorija), (string)reader["Kategorija"]),
+                        DatumRodjenja = (DateTime)reader["DatumRodjenja"]
+                    });
+                }
+            }
+            return polaznici;
         }
 
         #endregion

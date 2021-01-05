@@ -76,12 +76,13 @@ namespace Forme
             this.txtIme,
             this.txtPrezime,
             this.cbKategorija});
-            this.dataGridInstruktori.Enabled = false;
             this.dataGridInstruktori.Location = new System.Drawing.Point(4, 84);
             this.dataGridInstruktori.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridInstruktori.Name = "dataGridInstruktori";
+            this.dataGridInstruktori.ReadOnly = true;
             this.dataGridInstruktori.RowHeadersWidth = 51;
             this.dataGridInstruktori.RowTemplate.Height = 24;
+            this.dataGridInstruktori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridInstruktori.Size = new System.Drawing.Size(954, 454);
             this.dataGridInstruktori.TabIndex = 6;
             this.dataGridInstruktori.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridInstruktori_CellValueChanged);
@@ -93,6 +94,7 @@ namespace Forme
             this.txtIdPolaznik.HeaderText = "Id";
             this.txtIdPolaznik.MinimumWidth = 6;
             this.txtIdPolaznik.Name = "txtIdPolaznik";
+            this.txtIdPolaznik.ReadOnly = true;
             this.txtIdPolaznik.Visible = false;
             // 
             // txtIme
@@ -102,6 +104,7 @@ namespace Forme
             this.txtIme.HeaderText = "Ime";
             this.txtIme.MinimumWidth = 6;
             this.txtIme.Name = "txtIme";
+            this.txtIme.ReadOnly = true;
             // 
             // txtPrezime
             // 
@@ -109,6 +112,7 @@ namespace Forme
             this.txtPrezime.HeaderText = "Prezime";
             this.txtPrezime.MinimumWidth = 6;
             this.txtPrezime.Name = "txtPrezime";
+            this.txtPrezime.ReadOnly = true;
             // 
             // cbKategorija
             // 
@@ -116,6 +120,7 @@ namespace Forme
             this.cbKategorija.HeaderText = "Kategorija";
             this.cbKategorija.MinimumWidth = 6;
             this.cbKategorija.Name = "cbKategorija";
+            this.cbKategorija.ReadOnly = true;
             this.cbKategorija.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cbKategorija.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 

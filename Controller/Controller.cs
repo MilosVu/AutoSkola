@@ -121,12 +121,17 @@ namespace ControllerClass
 
         public bool KreirajGrupuZaPolaganje(List<Polaznik> polaznici, GrupaZaPolaganje grupaZaPolaganje)
         {
-            return RepositoryGrupeZaPolaganje.KreirajGrupuZaPolaganje(polaznici);
+            return RepositoryGrupeZaPolaganje.KreirajGrupuZaPolaganje(polaznici, grupaZaPolaganje);
         }
 
         public BindingList<GrupaZaPolaganje> VratiGrupeZaPolaganje()
         {
             return new BindingList<GrupaZaPolaganje>(RepositoryGrupeZaPolaganje.VratiGrupeZaPolaganje());
+        }
+
+        public BindingList<Polaznik> VratiPolaznikaIGrupeZaPolaganje(int idGrupeZaPolaganje)
+        {
+            return new BindingList<Polaznik>(RepositoryGrupeZaPolaganje.VratiPolaznikaIGrupeZaPolaganje(idGrupeZaPolaganje));
         }
 
         #endregion
