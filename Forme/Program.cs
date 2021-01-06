@@ -16,8 +16,7 @@ namespace Forme
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainCoordinator.Instance.OtvoriFormuZaPrijavljivanje();
-            Application.Run();
+            Application.Run(new FormaPrijavljivanje());
         }
     }
 }
