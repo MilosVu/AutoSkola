@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Forme
+namespace Server
 {
     static class Program
     {
@@ -16,8 +16,7 @@ namespace Forme
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainCoordinator.Instance.OtvoriFormuZaPrijavljivanje();
-            Application.Run();
+            Application.Run(new FormServer());
         }
     }
 }

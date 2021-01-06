@@ -50,10 +50,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DialogKreirajGrupuZaPolaganje.cs">
+    <Compile Include="Communication\Communication.cs" />
+    <Compile Include="Communication\CommunicationClient.cs" />
+    <Compile Include="Controller\ControllerGrupaZaPolaganje.cs" />
+    <Compile Include="Controller\ControllerInstruktor.cs" />
+    <Compile Include="Controller\ControllerPolaznik.cs" />
+    <Compile Include="Controller\ControllerPrijavljivanje.cs" />
+    <Compile Include="Controller\ControllerVoznja.cs" />
+    <Compile Include="Controller\ControllerGlavni.cs" />
+    <Compile Include="Dialog\DialogKreirajGrupuZaPolaganje.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DialogKreirajGrupuZaPolaganje.Designer.cs">
+    <Compile Include="Dialog\DialogKreirajGrupuZaPolaganje.Designer.cs">
       <DependentUpon>DialogKreirajGrupuZaPolaganje.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialog\Voznje\DialogKreirajVoznju.cs">
@@ -80,6 +88,7 @@
     <Compile Include="Dialog\Polaznik\DialogPrikazPolaznika.Designer.cs">
       <DependentUpon>DialogPrikazPolaznika.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\SystemOperationException.cs" />
     <Compile Include="FormaGlavna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,12 +102,13 @@
       <DependentUpon>FormaPrijavljivanje.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FormeHelper.cs" />
+    <Compile Include="MainCoordinator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCGrupaZaPolaganje.cs">
+    <Compile Include="UserControl\UCGrupaZaPolaganje.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCGrupaZaPolaganje.Designer.cs">
+    <Compile Include="UserControl\UCGrupaZaPolaganje.Designer.cs">
       <DependentUpon>UCGrupaZaPolaganje.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\UCVoznja.cs">
@@ -119,7 +129,7 @@
     <Compile Include="UserControl\UCPolaznici.Designer.cs">
       <DependentUpon>UCPolaznici.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DialogKreirajGrupuZaPolaganje.resx">
+    <EmbeddedResource Include="Dialog\DialogKreirajGrupuZaPolaganje.resx">
       <DependentUpon>DialogKreirajGrupuZaPolaganje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Voznje\DialogKreirajVoznju.resx">
@@ -149,7 +159,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UCGrupaZaPolaganje.resx">
+    <EmbeddedResource Include="UserControl\UCGrupaZaPolaganje.resx">
       <DependentUpon>UCGrupaZaPolaganje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UCVoznja.resx">
@@ -175,9 +185,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controller\ControllerClass.csproj">
-      <Project>{c2eed1a1-9293-4ad7-9447-13f3b0ea16b4}</Project>
-      <Name>ControllerClass</Name>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{24ffd7c7-8826-420e-9989-4f8506fab7aa}</Project>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{3ac774ac-d564-47b4-a704-078a188cda70}</Project>

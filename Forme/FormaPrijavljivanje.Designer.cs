@@ -156,6 +156,7 @@ namespace Forme
             this.Name = "FormaPrijavljivanje";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forma za prijavljivanje";
+            this.Load += new System.EventHandler(this.FormaPrijavljivanje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureKorisnickoIme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLozinka)).EndInit();
             this.ResumeLayout(false);

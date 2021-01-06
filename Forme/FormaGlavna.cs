@@ -1,34 +1,26 @@
-﻿using ControllerClass;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using FormeHelpers;
+using Forme.Controller;
 
 namespace Forme
 {
     public partial class FormaGlavna : Form
     {
 
-        private Controller controller;
+        private readonly ControllerGlavni controllerGlavni;
 
-        public FormaGlavna()
+        public FormaGlavna(ControllerGlavni controllerGlavni)
         {
             InitializeComponent();
-            this.controller = Controller.Instance;
+            this.controllerGlavni = controllerGlavni;
         }
 
         private void FormaGlavna_Load(object sender, EventArgs e)
         {
-            lblUlogovanKorisnik.Text += " " + controller.SluzbenikAutoSkole.KorisnickoIme;
+            lblUlogovanKorisnik.Text += " UNESI OVDE IME";
         }
 
-        private void SetPanel(UserControl userControl)
+        public void SetPanel(UserControl userControl)
         {
             panelGlavni.Controls.Clear();
             userControl.Parent = panelGlavni;
@@ -37,22 +29,22 @@ namespace Forme
 
         private void grupeZaPolaganjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetPanel(new UCGrupaZaPolaganje());
+            controllerGlavni.OtvoriUCGrupaZaPolaganje(this);
         }
 
         private void polazniciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetPanel(new UCPolaznici());
+            controllerGlavni.OtvoriUCPolaznici(this);
         }
 
         private void instruktoriToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetPanel(new UCInstruktor());
+            controllerGlavni.OtvoriUCInstruktor(this);
         }
 
         private void voznjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetPanel(new UCVoznja());
+            controllerGlavni.OtvoriUCVoznja(this);
         }
     }
 }

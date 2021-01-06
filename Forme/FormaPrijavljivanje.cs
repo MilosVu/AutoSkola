@@ -1,5 +1,5 @@
-﻿using ControllerClass;
-using Domain;
+﻿using Domain;
+using Forme.Controller;
 using FormeHelpers;
 using System;
 using System.Collections.Generic;
@@ -16,53 +16,30 @@ namespace Forme
     public partial class FormaPrijavljivanje : Form
     {
 
-        private Controller controller;
+        private ControllerPrijavljivanje controllerPrijavljivanje;
 
-        public FormaPrijavljivanje()
+        public FormaPrijavljivanje(ControllerPrijavljivanje controllerPrijavljivanje)
         {
             InitializeComponent();
             txtKorisnickoIme.Text = "admin";
             txtLozinka.Text = "admin";
-            controller = Controller.Instance;
+            this.controllerPrijavljivanje = controllerPrijavljivanje;
 
         }
 
         private void btnPrijaviSe_Click(object sender, EventArgs e)
         {
-            if(!FormeHelper.TextFieldValidator(new TextBox[] {txtKorisnickoIme, txtLozinka}))
-            {
-                MessageBox.Show("Sva polja su obavezna");
-                return;
-            }
-
-            SluzbenikAutoSkole sluzbenikAutoSkole = new SluzbenikAutoSkole()
-            {
-                KorisnickoIme = txtKorisnickoIme.Text,
-                Lozinka = txtLozinka.Text
-            };
-
-            if (controller.Prijavljivanje(sluzbenikAutoSkole))
-            {
-                controller.SluzbenikAutoSkole = sluzbenikAutoSkole;
-                MessageBox.Show("Dobro dosli.");
-                FormaGlavna formaGlavna = new FormaGlavna();
-                this.Visible = false;
-                formaGlavna.ShowDialog();
-                this.Dispose();
-            }
-            else
-            {
-                MessageBox.Show("Pogresno korisnicko ime ili lozinka.");
-            }
-
+            controllerPrijavljivanje.Prijavljivanje(txtKorisnickoIme, txtLozinka, this);
         }
 
         private void cbPrikazLoznike_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbPrikazLoznike.Checked)
-                txtLozinka.PasswordChar = '\0';
-            else
-                txtLozinka.PasswordChar = '*';
+            controllerPrijavljivanje.PrikazLozinke(cbPrikazLoznike, txtLozinka);
+        }
+
+        private void FormaPrijavljivanje_Load(object sender, EventArgs e)
+        {
+            controllerPrijavljivanje.KonektujSe();
         }
     }
 }

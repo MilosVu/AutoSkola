@@ -1,5 +1,5 @@
-﻿using ControllerClass;
-using Domain;
+﻿using Domain;
+using Forme.Controller;
 using FormeHelpers;
 using System;
 using System.Collections.Generic;
@@ -16,67 +16,37 @@ namespace Forme
     public partial class UCVoznja : UserControl
     {
 
-        public static BindingList<Voznja> voznje;
-        private Controller controller = Controller.Instance;
+        
+        private ControllerVoznja controllerVoznja;
 
-        public UCVoznja()
+        public UCVoznja(Controller.ControllerVoznja controllerVoznja)
         {
             InitializeComponent();
-            voznje = controller.VratiVoznje(null);
-            FormeHelper.PostaviPozadinuTransparentnu(new Label[] { lblPretraga, lblVoznje });
+            this.controllerVoznja = controllerVoznja;
         }
 
         private void UCVoznja_Load(object sender, EventArgs e)
-        { 
-            dataGridVoznje.DataSource = voznje;
-            cbKategorija.Items.Add("Sve kategorije");
-            cbKategorija.Items.Add(Domain.Kategorija.A);
-            cbKategorija.Items.Add(Domain.Kategorija.B);
-            cbKategorija.Items.Add(Domain.Kategorija.C);
-            cbKategorija.Items.Add(Domain.Kategorija.D);
-            cbKategorija.SelectedIndex = 0;
+        {
+            controllerVoznja.NapuniCbKategorije(cbKategorija);
+            controllerVoznja.NapuniDataGridVoznje(dataGridVoznje);
         }
 
         private void btnKreirajVoznju_Click(object sender, EventArgs e)
         {
-            DialogKreirajVoznju kreirajVoznju = new DialogKreirajVoznju();
-            kreirajVoznju.ShowDialog();
+            controllerVoznja.OtvoriDialogKreirajVoznju();
         }
 
         private void cbKategorija_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbKategorija.SelectedIndex == 0)
-            {
-                dataGridVoznje.DataSource = controller.VratiVoznje(null);
-            }
-            else
-            {
-                dataGridVoznje.DataSource = controller.VratiVoznje((Kategorija) cbKategorija.SelectedItem);
-            }
-                dataGridVoznje.Refresh();
+            controllerVoznja.PromenaKategorije(cbKategorija, dataGridVoznje);
         }
 
         private void txtPretraga_TextChanged(object sender, EventArgs e)
         {
-            dataGridVoznje.DataSource = Filtriraj(txtPretraga.Text.ToLower());
-            dataGridVoznje.Refresh();
+            controllerVoznja.FiltrirajPretragu(dataGridVoznje,txtPretraga);
         }
 
-        private BindingList<Voznja> Filtriraj(string tekstPretrage)
-        {
-            BindingList<Voznja> filtriraneVoznje = new BindingList<Voznja>();
-            foreach(Voznja v in voznje)
-            {
-                string stringVoznje = $"{v.Polaznik.Ime} {v.Polaznik.Prezime} {v.Instruktor.Ime} " +
-                    $"{v.Instruktor.Prezime} {v.Automobil.Marka} {v.Automobil.Model}";
-                stringVoznje = stringVoznje.ToLower();
-                if (stringVoznje.Contains(tekstPretrage))
-                {
-                    filtriraneVoznje.Add(v);
-                }
-            }
-            return filtriraneVoznje;
-        }
+        
 
     }
 }
