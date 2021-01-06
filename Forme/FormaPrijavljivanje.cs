@@ -1,5 +1,5 @@
-﻿using Domain;
-using Forme.Controller;
+﻿using ControllerClass;
+using Domain;
 using FormeHelpers;
 using System;
 using System.Collections.Generic;
@@ -16,30 +16,53 @@ namespace Forme
     public partial class FormaPrijavljivanje : Form
     {
 
-        private ControllerPrijavljivanje controllerPrijavljivanje;
+        private Controller controller;
 
-        public FormaPrijavljivanje(ControllerPrijavljivanje controllerPrijavljivanje)
+        public FormaPrijavljivanje()
         {
             InitializeComponent();
             txtKorisnickoIme.Text = "admin";
             txtLozinka.Text = "admin";
-            this.controllerPrijavljivanje = controllerPrijavljivanje;
+            controller = Controller.Instance;
 
         }
 
         private void btnPrijaviSe_Click(object sender, EventArgs e)
         {
-            controllerPrijavljivanje.Prijavljivanje(txtKorisnickoIme, txtLozinka, this);
+            if(!FormeHelper.TextFieldValidator(new TextBox[] {txtKorisnickoIme, txtLozinka}))
+            {
+                MessageBox.Show("Sva polja su obavezna");
+                return;
+            }
+
+            SluzbenikAutoSkole sluzbenikAutoSkole = new SluzbenikAutoSkole()
+            {
+                KorisnickoIme = txtKorisnickoIme.Text,
+                Lozinka = txtLozinka.Text
+            };
+
+            if (controller.Prijavljivanje(sluzbenikAutoSkole))
+            {
+                controller.SluzbenikAutoSkole = sluzbenikAutoSkole;
+                MessageBox.Show("Dobro dosli.");
+                FormaGlavna formaGlavna = new FormaGlavna();
+                this.Visible = false;
+                formaGlavna.ShowDialog();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Pogresno korisnicko ime ili lozinka.");
+            }
+
         }
 
         private void cbPrikazLoznike_CheckedChanged(object sender, EventArgs e)
         {
-            controllerPrijavljivanje.PrikazLozinke(cbPrikazLoznike, txtLozinka);
-        }
-
-        private void FormaPrijavljivanje_Load(object sender, EventArgs e)
-        {
-            controllerPrijavljivanje.KonektujSe();
+            if (cbPrikazLoznike.Checked)
+                txtLozinka.PasswordChar = '\0';
+            else
+                txtLozinka.PasswordChar = '*';
         }
     }
 }

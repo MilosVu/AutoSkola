@@ -1,26 +1,34 @@
-﻿using System;
+﻿using ControllerClass;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Forme.Controller;
+using FormeHelpers;
 
 namespace Forme
 {
     public partial class FormaGlavna : Form
     {
 
-        private readonly ControllerGlavni controllerGlavni;
+        private Controller controller;
 
-        public FormaGlavna(ControllerGlavni controllerGlavni)
+        public FormaGlavna()
         {
             InitializeComponent();
-            this.controllerGlavni = controllerGlavni;
+            this.controller = Controller.Instance;
         }
 
         private void FormaGlavna_Load(object sender, EventArgs e)
         {
-            lblUlogovanKorisnik.Text += " UNESI OVDE IME";
+            lblUlogovanKorisnik.Text += " " + controller.SluzbenikAutoSkole.KorisnickoIme;
         }
 
-        public void SetPanel(UserControl userControl)
+        private void SetPanel(UserControl userControl)
         {
             panelGlavni.Controls.Clear();
             userControl.Parent = panelGlavni;
@@ -29,22 +37,22 @@ namespace Forme
 
         private void grupeZaPolaganjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controllerGlavni.OtvoriUCGrupaZaPolaganje(this);
+            SetPanel(new UCGrupaZaPolaganje());
         }
 
         private void polazniciToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controllerGlavni.OtvoriUCPolaznici(this);
+            SetPanel(new UCPolaznici());
         }
 
         private void instruktoriToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controllerGlavni.OtvoriUCInstruktor(this);
+            SetPanel(new UCInstruktor());
         }
 
         private void voznjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controllerGlavni.OtvoriUCVoznja(this);
+            SetPanel(new UCVoznja());
         }
     }
 }
